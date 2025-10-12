@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.core.validators import MinValueValidator, MaxValueValidator
 from cloudinary.models import CloudinaryField
 
+
 # Create your models here.
 class Book(models.Model):
     title = models.CharField(max_length=255, unique=True)
@@ -22,7 +23,8 @@ class Book(models.Model):
 
     def __str__(self):
         return f"{self.title} | written by {self.author_name}"
-    
+
+
 class Review(models.Model):
     book = models.ForeignKey(
         Book, on_delete=models.CASCADE, related_name="Reviews")
@@ -43,4 +45,4 @@ class Review(models.Model):
 
     def __str__(self):
         return f"Comment {self.body} by {self.author}"
-    
+

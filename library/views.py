@@ -26,9 +26,15 @@ def book_detail(request, slug):
 
     queryset = Book.objects.all()
     book = get_object_or_404(queryset, slug=slug)
+    reviews = book.Reviews.all().order_by("-created_on")
+    review_count = book.Reviews.filter(approved=True).count()
 
     return render(
         request,
         "library/book_detail.html",
-        {"book": book},
+        {
+            "book": book,
+            "reviews": reviews,
+            "review_count": review_count,
+        },
     )

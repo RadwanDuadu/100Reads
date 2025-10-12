@@ -87,22 +87,22 @@ body {
     z-index: 100;
 }
 
-.post-link {
+.book-link {
     text-decoration: none;
     color: #445261;
 }
 
-.post-link:hover,
+.book-link:hover,
 .page-link {
     color: #E84610;
 }
 
-.post-title {
+.book-title {
     margin-top: 10%;
     margin-left: 5%;
 }
 
-.post-subtitle {
+.book-subtitle {
     margin-left: 5%;
     color: lightgray;
 }
@@ -226,13 +226,13 @@ hr {
     padding: 20px;
 }
 
-.post-title {
+.book-title {
     font-size: 2.5rem;
     font-weight: bold;
     color: #ffffff;
 }
 
-.post-subtitle {
+.book-subtitle {
     font-size: 1.1rem;
     color: #cccccc;
 }
@@ -301,4 +301,25 @@ form.signup a.link {
 form.signup a.link:hover {
     color: #ffffff;
     text-decoration: underline;
+}
+
+/* Lighter background for review cards */
+.review-card {
+    background-color: #fefefe; /* Soft off-white */
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    color: #333333;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.review-card h3 {
+    color: #8B5E3C; /* Rustic brown for title */
+}
+
+.reviews {
+    background-color: #f8f9fa;
+    border-radius: 6px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #e0e0e0;
 }
