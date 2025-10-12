@@ -29,10 +29,6 @@ body {
     background-color: #F9FAFC;
 }
 
-.card {
-    border: none;
-    background-color: transparent;
-}
 
 .image-container {
     position: relative;
@@ -156,6 +152,89 @@ body {
     color: rgb(172, 175, 175);
 }
 
-.approval {
-    color: rgb(222, 146, 168);
+
+/* Card styling */
+.card {
+    background-color: #8B5E3C;
+    border: 1px solid #2a2a2a;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.card-title {
+    font-family: 'Roboto', sans-serif;
+    color: #ffffff;
+    font-size: 1.4rem;
+}
+
+.card-text {
+    color: #b0b0b0;
+}
+
+.card .author {
+    font-size: 0.9rem;
+    /* color: #888888; */
+    /* margin-bottom: 0.5rem; */
+}
+
+/* Pagination */
+.pagination .page-link {
+    background-color: #1f1f1f;
+    color: #cccccc;
+    border: 1px solid #333333;
+}
+
+.pagination .page-link:hover {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+/* Image placeholder styling */
+.image-container {
+    height: 200px;
+    background-color: #2c2c2c;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #aaaaaa;
+    font-size: 0.9rem;
+}
+
+/* Utilities */
+.left {
+    padding: 20px;
+}
+
+hr {
+    border-top: 1px solid #2e2e2e;
+}
+
+/* Masthead section styling */
+.masthead {
+    background-color: #1a1a1a;
+    padding: 60px 0;
+    color: #f0f0f0;
+}
+
+.masthead-text {
+    padding: 20px;
+}
+
+.post-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.post-subtitle {
+    font-size: 1.1rem;
+    color: #cccccc;
+}
+
+
