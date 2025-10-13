@@ -52,6 +52,9 @@
                     faded{% elif not review.approved %} d-none{% endif %}">
                     <p class="font-weight-bold">
                         <h5><b>{{ review.author }}</b></h5>
+                        <p class="{% if review.rating == 5 %}green
+                            {% elif review.rating == 1 %}red
+                            {% endif %}">Rating: {{review.rating}}/5</p>
                         <span class="font-weight-normal">
                             Created on: {{ review.created_on }}
                         </span>
