@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
+from django.contrib import messages
 from .models import Book
 from .forms import ReviewForm
 
@@ -37,6 +38,10 @@ def book_detail(request, slug):
             review.author = request.user
             review.book = book
             review.save()
+            messages.add_message(
+                request, messages.SUCCESS,
+                'Review submitted and awaiting approval'
+            )
 
     review_form = ReviewForm()
 
