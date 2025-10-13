@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from .models import Book
+from .forms import ReviewForm
 
 
 # Create your views here.
@@ -28,6 +29,16 @@ def book_detail(request, slug):
     book = get_object_or_404(queryset, slug=slug)
     reviews = book.Reviews.all().order_by("-created_on")
     review_count = book.Reviews.filter(approved=True).count()
+  
+    if request.method == "POST":
+        review_form = ReviewForm(data=request.POST)
+        if review_form.is_valid():
+            review = review_form.save(commit=False)
+            review.author = request.user
+            review.book = book
+            review.save()
+
+    review_form = ReviewForm()
 
     return render(
         request,
@@ -36,5 +47,6 @@ def book_detail(request, slug):
             "book": book,
             "reviews": reviews,
             "review_count": review_count,
+            "review_form": review_form,
         },
     )
