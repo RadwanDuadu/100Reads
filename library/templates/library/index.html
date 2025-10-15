@@ -16,10 +16,10 @@
                         <div class="card-body">
                             <div class="image-container">
                                 {% if "placeholder" in book.cover.url %}
-                                <img class="card-img-top" src="{% static 'images/book_template.jpg' %}"
+                                <img class="card-img-center" src="{% static 'images/book_template.jpg' %}"
                                 alt="placeholder image">
                                 {% else %}
-                                <img class="card-img-top" src=" {{ book.cover.url }}" alt="{{ book.title }}">
+                                <img class="card-img-center" src=" {{ book.cover.url }}" alt="{{ book.title }}">
                                 {% endif %}
                                 <div class="image-flash">
                                     <p class="author">Author: {{ book.author_name }}</p>
