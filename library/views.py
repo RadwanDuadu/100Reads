@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, reverse
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views import generic
 from django.contrib import messages
 from django.http import HttpResponseRedirect
@@ -31,7 +32,18 @@ def book_detail(request, slug):
     book = get_object_or_404(queryset, slug=slug)
     reviews = book.Reviews.all().order_by("-created_on")
     review_count = book.Reviews.filter(approved=True).count()
-  
+
+    # PAGINATION: Show 3 reviews per page
+    paginator = Paginator(reviews, 3)
+    page = request.GET.get("page")
+
+    try:
+        page_obj = paginator.page(page)
+    except PageNotAnInteger:
+        page_obj = paginator.page(1)
+    except EmptyPage:
+        page_obj = paginator.page(paginator.num_pages)
+    
     if request.method == "POST":
         review_form = ReviewForm(data=request.POST)
         if review_form.is_valid():
@@ -43,6 +55,7 @@ def book_detail(request, slug):
                 request, messages.SUCCESS,
                 'Review submitted and awaiting approval'
             )
+            return HttpResponseRedirect(reverse('book_detail', args=[slug]))  # <-- This prevents double-posting
 
     review_form = ReviewForm()
 
@@ -51,7 +64,8 @@ def book_detail(request, slug):
         "library/book_detail.html",
         {
             "book": book,
-            "reviews": reviews,
+            "reviews": page_obj.object_list,  # reviews for this page
+            "page_obj": page_obj,             # pass page_obj for pagination controls
             "review_count": review_count,
             "review_form": review_form,
         },
