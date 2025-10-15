@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import About, ContactRequest
+from .models import About, Contact
 from django_summernote.admin import SummernoteModelAdmin
 
 
@@ -8,6 +8,6 @@ class AboutAdmin(SummernoteModelAdmin):
 
     summernote_fields = ('content',)
 
-@admin.register(ContactRequest)
-class ContactRequestAdmin(admin.ModelAdmin):
+@admin.register(Contact)
+class ContactAdmin(admin.ModelAdmin):
     list_display = ('message', 'read',)

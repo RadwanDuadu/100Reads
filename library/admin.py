@@ -12,4 +12,10 @@ class BookAdmin(SummernoteModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
     summernote_fields = ('description',)
 
-admin.site.register(Review)
+@admin.register(Review)
+class ReviewAdmin(admin.ModelAdmin):
+    list_display = ("book", "author", "rating", "approved", "created_on")
+    list_filter = ("approved", "created_on", "rating", "book")
+    search_fields = ("body", "author__username", "book__title")
+    save_as = False  # <- ensure cloning button is gone
+    list_editable = ("approved",)
