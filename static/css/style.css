@@ -194,27 +194,6 @@ body {
     color: #ffffff;
 }
 
-/* Image placeholder styling */
-/* .image-container {
-    height: 200px;
-    width: 100%;
-    background-color: #2c2c2c;
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden !important;
-    position: relative;
-    border-radius: 4px;
-}
-
-.image-container img {
-    max-height: 100% !important;
-    max-width: 100% !important;
-    height: auto;  
-    object-fit: cover !important;
-} */
-
 .image-container {
     height: 200px;
     width: 100%;
@@ -350,12 +329,12 @@ form.signup a.link:hover {
     border: 1px solid #e0e0e0;
 }
 
-/* .book-image {
-    max-height: 300px;
-    object-fit: cover;
-    width: 100%;
+.blurb-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Number of lines you want to show */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 4.5em; /* Adjust depending on your font size and line height */
 }
 
-.card {
-    overflow: hidden;
-} */

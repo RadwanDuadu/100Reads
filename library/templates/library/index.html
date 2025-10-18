@@ -28,7 +28,7 @@
                             <a href="{% url 'book_detail' book.slug %}" class="book-link">
                                 <h2 class="card-title">{{ book.title }}</h2>
                             </a>
-                            <p class="card-text">{{book.blurb}}</p>
+                            <p class="card-text blurb-text">{{ book.blurb }}</p>
                             <hr />
                             <p class="card-text h6">{{ book.published_year}}
                             </p>
