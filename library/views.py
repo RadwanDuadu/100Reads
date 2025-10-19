@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.db.models import Sum, Avg
 from django.views import generic
 from django.contrib import messages
 from django.http import HttpResponseRedirect
@@ -30,8 +31,16 @@ def book_detail(request, slug):
 
     queryset = Book.objects.all()
     book = get_object_or_404(queryset, slug=slug)
+
+    # All reviews for pagination (approved + unapproved if needed)
     reviews = book.Reviews.all().order_by("-created_on")
+
+    # Count of only approved reviews
     review_count = book.Reviews.filter(approved=True).count()
+
+    # Add after total_views
+    average_rating = book.Reviews.filter(approved=True).aggregate(avg=Avg('rating'))['avg'] or 0
+    average_rating = round(average_rating)  # Round to nearest integer (1 to 5)
 
     # PAGINATION: Show 3 reviews per page
     paginator = Paginator(reviews, 3)
@@ -68,6 +77,7 @@ def book_detail(request, slug):
             "page_obj": page_obj,             # pass page_obj for pagination controls
             "review_count": review_count,
             "review_form": review_form,
+            "average_rating": average_rating,          # total views from approved reviews
         },
     )
 

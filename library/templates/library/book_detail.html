@@ -36,6 +36,18 @@
             <strong class="text-secondary">
                 <i class="far fa-comments"></i> {{ review_count }}
             </strong>
+            <strong class="text-secondary">
+                <i class="fas fa-star text-warning"></i> Average Rating:
+            </strong>
+            <span class="text-warning">
+                {% for i in "12345" %}
+                    {% if forloop.counter <= average_rating %}
+                        <i class="fas fa-star"></i>  {# filled star #}
+                    {% else %}
+                        <i class="far fa-star"></i>  {# empty star #}
+                    {% endif %}
+                {% endfor %}
+            </span>
         </div>
         <div class="col-12">
             <hr>
