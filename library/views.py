@@ -1,10 +1,11 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.contrib.auth.decorators import login_required, user_passes_test
 from django.db.models import Sum, Avg
 from django.views import generic
 from django.contrib import messages
 from django.http import HttpResponseRedirect
-from .models import Book, Review
+from .models import Book, Review, UserProfile
 from .forms import ReviewForm
 
 
@@ -120,3 +121,31 @@ def review_delete(request, slug, review_id):
         messages.add_message(request, messages.ERROR, 'You can only delete your own reviews!')
 
     return HttpResponseRedirect(reverse('book_detail', args=[slug]))
+
+
+def is_moderator(user):
+    return hasattr(user, 'userprofile') and user.userprofile.is_moderator
+
+@login_required
+@user_passes_test(is_moderator)
+def moderator_dashboard(request):
+    reviews = Review.objects.all().order_by('-created_on')
+    return render(request, 'moderator/dashboard.html', {'reviews': reviews})
+
+@login_required
+@user_passes_test(is_moderator)
+def approve_review(request, review_id):
+    review = get_object_or_404(Review, id=review_id)
+    review.approved = True
+    review.save()
+    messages.success(request, "Review approved successfully.")
+    return redirect('moderator_dashboard')
+
+@login_required
+@user_passes_test(is_moderator)
+def delete_review(request, review_id):
+    review = get_object_or_404(Review, id=review_id)
+    review.delete()
+    messages.success(request, "Review deleted successfully.")
+    return redirect('moderator_dashboard')
+

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+  <h2>Moderator Dashboard</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Book</th>
+        <th>Author</th>
+        <th>Review</th>
+        <th>Rating</th>
+        <th>Approved</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for review in reviews %}
+      <tr>
+        <td>{{ review.book.title }}</td>
+        <td>{{ review.author.username }}</td>
+        <td>{{ review.body|truncatechars:60 }}</td>
+        <td>{{ review.rating }}</td>
+        <td>{% if review.approved %}✅{% else %}❌{% endif %}</td>
+        <td>
+          {% if not review.approved %}
+          <a href="{% url 'approve_review' review.id %}" class="btn btn-sm btn-success">Approve</a>
+          {% endif %}
+          <a href="{% url 'delete_review' review.id %}" class="btn btn-sm btn-danger">Delete</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

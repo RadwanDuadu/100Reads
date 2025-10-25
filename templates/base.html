@@ -5,6 +5,7 @@
 {% url 'account_login' as login_url %}
 {% url 'account_signup' as signup_url %}
 {% url 'account_logout' as logout_url %}
+{% url 'moderator_dashboard' as moderator_dashboard %}
 
 <!DOCTYPE html>
 <html class="h-100" lang="en">
@@ -65,6 +66,11 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page" href="{% url 'account_login' %}">Login</a>
+                    </li>
+                    {% endif %}
+                    {% if user.is_authenticated and user.userprofile.is_moderator %}
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page" href="{% url 'moderator_dashboard' %}">Moderator Dashboard</a>
                     </li>
                     {% endif %}
                 </ul>
