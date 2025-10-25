@@ -149,3 +149,14 @@ def delete_review(request, review_id):
     messages.success(request, "Review deleted successfully.")
     return redirect('moderator_dashboard')
 
+@login_required
+def delete_review(request, review_id):
+    review = get_object_or_404(Review, id=review_id)
+
+    if request.user.userprofile.is_moderator or review.author == request.user:
+        review.delete()
+        messages.success(request, "Review deleted successfully.")
+    else:
+        messages.error(request, "You are not allowed to delete this review.")
+
+    return redirect('book_detail', slug=review.book.slug)
