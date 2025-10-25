@@ -32,3 +32,18 @@ class TestBlogViews(TestCase):
         self.assertIn(b"2023", response.content)
         self.assertIsInstance(
             response.context['review_form'], ReviewForm)
+        
+    def test_successful_review_submission(self):
+        """Test for posting a review on a book"""
+        self.client.login(
+            username="myUsername", password="myPassword")
+        post_data = {
+            'body': 'This is a test review.', 'rating': 4
+        }
+        response = self.client.post(reverse(
+            'book_detail', args=['book-title']), post_data, follow=True)
+        self.assertEqual(response.status_code, 200)  
+        self.assertIn(
+            b"Review submitted and awaiting approval",
+            response.content
+        )
