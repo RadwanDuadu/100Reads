@@ -142,29 +142,30 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 In this section, list all of your possible user stories for the project. Samples have been provided below using the example walkthrough project for your inspiration. Make sure to adjust to match your own project features!
 
 ⚠️ --- END --- ⚠️
+| **Target**           | **Expectation**                                                                  | **Outcome**                                                                                        |
+| -------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| As a site admin      | I would like to add new books with a title, author, cover image, and description | so that I can expand the library’s book collection.                                                |
+| As a site admin      | I would like to update existing book details                                     | so that I can correct information or refresh outdated content.                                     |
+| As a site admin      | I would like to delete book entries                                              | so that I can remove books that are no longer relevant or appropriate.                             |
+| As a site admin      | I would like to view a list of all books in the library                          | so that I can manage and maintain the book catalogue efficiently.                                  |
+| As a moderator       | I would like to review user-submitted reviews before they are published          | so that I can ensure the content is appropriate and constructive.                                  |
+| As a moderator       | I would like to approve or disapprove user reviews                               | so that I can maintain the quality and tone of the platform.                                       |
+| As a moderator       | I would like to manage and delete reviews if needed                              | so that I can remove inappropriate or duplicate content.                                           |
+| As a moderator       | I would like to approve or disapprove reviews directly from the front-end        | so that I can moderate efficiently without accessing the admin panel.                              |
+| As a registered user | I would like to register for an account                                          | so that I can become part of the community and leave reviews on books.                             |
+| As a registered user | I would like to log in to the site                                               | so that I can add, edit, or delete my own reviews.                                                 |
+| As a registered user | I would like to leave a star rating and written review on a book                 | so that I can share my thoughts and help other readers make informed choices.                      |
+| As a registered user | I would like to see my name and the date on my submitted review                  | so that my feedback feels personalized and authentic.                                              |
+| As a registered user | I would like to receive a notification when my review is pending approval        | so that I understand it will appear once approved by a moderator.                                  |
+| As a registered user | I would like to edit or delete my own review                                     | so that I can correct or retract my feedback when needed.                                          |
+| As a guest user      | I would like to browse and read book listings without registering                | so that I can explore book recommendations easily.                                                 |
+| As a guest user      | I would like to view book details, average ratings, and approved reviews         | so that I can make informed decisions about what to read.                                          |
+| As a guest user      | I would like to register for an account                                          | so that I can start contributing my own book reviews.                                              |
+| As a guest user      | I would like to see the names of reviewers on each book’s detail page            | so that I can sense the authenticity of community feedback.                                        |
+| As a user            | I would like to view an **About** page                                           | so that I can learn more about the purpose and mission of 100Reads.                                |
+| As a user            | I would like to use a **Contact** form                                           | so that I can send feedback, questions, or inquiries to the site administrators.                   |
+| As a user            | I would like to see a **404 error page** if I visit a broken or invalid link     | so that I understand I’ve reached a page that doesn’t exist and can return to the homepage easily. |
 
-| Target | Expectation | Outcome |
-| --- | --- | --- |
-| As a blog owner | I would like to create new blog posts with a title, featured image, and content | so that I can share my experiences with my audience. |
-| As a blog owner | I would like to update existing blog posts | so that I can correct or add new information to my previous stories. |
-| As a blog owner | I would like to delete blog posts | so that I can remove outdated or irrelevant content from my blog. |
-| As a blog owner | I would like to retrieve a list of all my published blog posts | so that I can manage them from a central dashboard. |
-| As a blog owner | I would like to preview a post as draft before publishing it | so that I can ensure formatting and content appear correctly. |
-| As a blog owner | I would like to review comments before they are published | so that I can filter out spam or inappropriate content. |
-| As a blog owner | I would like to approve or reject comments from users | so that I can maintain control over the discussion on my posts. |
-| As a blog owner | I would like to view a list of all comments (both approved and pending) | so that I can manage user engagement effectively. |
-| As a blog owner | I would like to edit or delete user comments | so that I can clean up or remove inappropriate responses after they've been posted. |
-| As a registered user | I would like to log in to the site | so that I can leave comments on blog posts. |
-| As a registered user | I would like to register for an account | so that I can become part of the community and engage with the blog. |
-| As a registered user | I would like to leave a comment on a blog post | so that I can share my thoughts or ask questions about the owner's experiences. |
-| As a registered user | I would like my comment to show my name and the timestamp | so that others can see who I am and when I left the comment. |
-| As a registered user | I would like to receive a notification or message saying my comment is pending approval | so that I understand it hasn't been posted immediately. |
-| As a registered user | I would like to edit or delete my own comments | so that I can fix mistakes or retract my statement. |
-| As a guest user | I would like to read blog posts without registering | so that I can enjoy the content without needing to log in. |
-| As a guest user | I would like to browse past posts | so that I can explore the blog's full content history. |
-| As a guest user | I would like to register for an account | so that I can participate in the community by leaving comments on posts. |
-| As a guest user | I would like to see the names of other commenters on posts | so that I can get a sense of community interaction before registering. |
-| As a user | I would like to see a 404 error page if I get lost | so that it's obvious that I've stumbled upon a page that doesn't exist. |
 
 ## Features
 
