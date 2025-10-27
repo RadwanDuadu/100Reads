@@ -59,7 +59,7 @@ source: [100Reads amiresponsive](https://ui.dev/amiresponsive?url=https://read10
   - Links to Home, Books, Login/Register, about, and Dashboard (for website moderators).
 - **Hierarchy**:
   - Book content displayed prominently for easy browsing.
-  - Clear call-to-action buttons for account creation and engagement (e.g., commenting).
+  - Clear call-to-action buttons for account creation and engagement (e.g., review).
 
 **User Flow**
 1. Guest users browse book description → read different books and see approved reviews.
@@ -82,32 +82,45 @@ source: [100Reads amiresponsive](https://ui.dev/amiresponsive?url=https://read10
 
 I used the below colours for the creation of the website
 
-- `#000000` primary text.
-- `#3772FF` primary highlights.
-- `#DF2935` secondary text.
-- `#FDCA40` secondary highlights.
+| Hex Code                | Usage / Context                                                       |
+| ----------------------- | --------------------------------------------------------------------- |
+| `#F9FAFC`               | Page background (`body`, `.main-bg`)                                  |
+| `#4A4A4F`               | Brand text color (`.brand`)                                           |
+| `#E84610`               | Accent color (links, buttons, hover states)                           |
+| `#fff` / `#ffffff`      | White text, light backgrounds (`.light-bg`, buttons, text)            |
+| `#445261`               | Dark background and text (`.dark-bg`, `.masthead-text`, `.book-link`) |
+| `#188181`               | Teal highlight (`.image-flash`, `.btn-signup`, `.btn-edit`)           |
+| `#23BBBB`               | Teal-blue for hover links and buttons                                 |
+| `#8B5E3C`               | Rustic brown (cards, forms, titles)                                   |
+| `#2a2a2a`               | Dark border on cards                                                  |
+| `#1f1f1f`               | Pagination background                                                 |
+| `#333333`               | Pagination hover background, text                                     |
+| `#2c2c2c`               | Image container background                                            |
+| `#2e2e2e`               | Horizontal rule border color                                          |
+| `#1a1a1a`               | Masthead dark background                                              |
+| `#f0f0f0`               | Masthead text color                                                   |
+| `#b0b0b0`               | Card text (muted gray)                                                |
+| `#cccccc`               | Borders, form inputs, light text                                      |
+| `#f5f5f5`               | Input background                                                      |
+| `#333333`               | Input text color                                                      |
+| `#ffb3b3`               | Error text (light red)                                                |
+| `#FFD580`               | Soft gold (signup link color)                                         |
+| `#e6e6e6`               | Button hover background                                               |
+| `#fefefe`               | Review card background (soft white)                                   |
+| `#dddddd`               | Review card border                                                    |
+| `#f8f9fa`               | Review section background                                             |
+| `#e0e0e0`               | Review section border                                                 |
+| `#b0b0b0`               | Card text                                                             |
 
-![screenshot](documentation/coolors.png)
 
 ### Typography
 
-⚠️ INSTRUCTIONS ⚠️
 
-Explain any fonts and icon libraries used, like **Google Fonts**, **Font Awesome**, etc. Consider adding a link to each font used, the Font Awesome site (if used), or similar icon library.
-
-⚠️ --- END --- ⚠️
-
-- [Montserrat](https://fonts.google.com/specimen/Montserrat) was used for the primary headers and titles.
-- [Lato](https://fonts.google.com/specimen/Lato) was used for all other secondary text.
+- [Lato](https://fonts.google.com/specimen/Lato) Used for the brand logo/title — modern, clean sans-serif font.
+- [Roboto](https://fonts.google.com/specimen/Roboto) Used for card titles — professional, easy-to-read sans-serif font.
 - [Font Awesome](https://fontawesome.com) icons were used throughout the site, such as the social media icons in the footer.
 
 ## Wireframes
-
-⚠️ INSTRUCTIONS ⚠️
-
-If you've created wireframes or mock-ups, use this section to display screenshots of your wireframes. The example table below uses sample pages from the walkthrough project to give you some inspiration for your own project, so please adjust accordingly.
-
-⚠️ --- END --- ⚠️
 
 To follow best practice, wireframes were developed for mobile, tablet, and desktop sizes.
 I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wireframes.
