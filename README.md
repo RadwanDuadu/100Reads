@@ -80,15 +80,7 @@ source: [100Reads amiresponsive](https://ui.dev/amiresponsive?url=https://read10
 
 ### Colour Scheme
 
-⚠️INSTRUCTIONS ⚠️
-
-Explain your colors and color scheme. Consider adding a link and screenshot for your color scheme using [coolors](https://coolors.co/generate).
-
-When you add a color to the palette, the URL is dynamically updated, making it easier for you to return back to your color palette later if needed. See example below:
-
-⚠️ --- END --- ⚠️
-
-I used [coolors.co](https://coolors.co/080708-3772ff-df2935-fdca40-e6e8e6) to generate my color palette.
+I used the below colours for the creation of the website
 
 - `#000000` primary text.
 - `#3772FF` primary highlights.
