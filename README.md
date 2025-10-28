@@ -137,11 +137,6 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 
 ## User Stories
 
-⚠️ INSTRUCTIONS ⚠️
-
-In this section, list all of your possible user stories for the project. Samples have been provided below using the example walkthrough project for your inspiration. Make sure to adjust to match your own project features!
-
-⚠️ --- END --- ⚠️
 | **Target**           | **Expectation**                                                                  | **Outcome**                                                                                        |
 | -------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
 | As a site admin      | I would like to add new books with a title, author, cover image, and description | so that I can expand the library’s book collection.                                                |
@@ -169,36 +164,29 @@ In this section, list all of your possible user stories for the project. Samples
 
 ## Features
 
-⚠️ INSTRUCTIONS ⚠️
-
-In this section, you should go over the different parts of your project, and describe each feature. You should explain what value each of the features provides for the user, focusing on your target audience, what they want to achieve, and how your project can help them achieve these things.
-
-**IMPORTANT**: Remember to always include a screenshot of each individual feature!
-
-⚠️ --- END --- ⚠️
-
 ### Existing Features
 
-| Feature | Notes | Screenshot |
-| --- | --- | --- |
-| Register | Authentication is handled by allauth, allowing users to register accounts. | ![screenshot](documentation/features/register.png) |
-| Login | Authentication is handled by allauth, allowing users to log in to their existing accounts. | ![screenshot](documentation/features/login.png) |
-| Logout | Authentication is handled by allauth, allowing users to log out of their accounts. | ![screenshot](documentation/features/logout.png) |
-| Blog List | The homepage displays basic information about blog posts, including image, title, author, date, and a brief excerpt. | ![screenshot](documentation/features/blog-list.png) |
-| View Post | Users can view the full blog post details, including any comments. | ![screenshot](documentation/features/view-post.png) |
-| Pagination | Blog posts are displayed in pages, with six posts per page. This provides better navigation for users through the post list. | ![screenshot](documentation/features/pagination.png) |
-| Add Comments | Authenticated visitors can comment on blog posts; comments require approval before being published. | ![screenshot](documentation/features/add-comment.png) |
-| Edit Comments | Authenticated visitors can edit their own comments. | ![screenshot](documentation/features/edit-comment.png) |
-| Delete Comments | Authenticated visitors can delete their own comments. | ![screenshot](documentation/features/delete-comment.png) |
-| Comment Approvals | Admins can approve or disapprove comments submitted by users before they are visible on the blog post. | ![screenshot](documentation/features/comment-approval.png) |
-| Create Post | Site owners can create/publish blog posts, including setting a featured image using Cloudinary, all from the Django admin dashboard. | ![screenshot](documentation/features/create-post.png) |
-| Update Post | Site owners can update/manage blog posts from the Django admin dashboard. | ![screenshot](documentation/features/update-post.png) |
-| Delete Post | Site owners can delete blog posts from the Django admin dashboard. | ![screenshot](documentation/features/delete-post.png) |
-| About Page | The About page displays the latest information about the site author, along with the option for visitors to send collaboration requests. | ![screenshot](documentation/features/about.png) |
-| Collaboration Requests | Visitors can submit collaboration requests from the *About* page, which are later reviewed by the admin. | ![screenshot](documentation/features/collaboration.png) |
-| User Feedback | Clear and obvious Django messages are used to provide feedback to user actions. | ![screenshot](documentation/features/messages.png) |
-| Heroku Deployment | The site is fully deployed to Heroku, making it accessible online and easy to manage. | ![screenshot](documentation/features/heroku.png) |
-| 404 | The 404 error page will indicate when a user has navigated to a page that doesn't exist, replacing the default Heroku 404 page with one that ties into the site's look and feel. | ![screenshot](documentation/features/404.png) |
+| **Feature**                     | **Notes**                                                                                                                                     | **Screenshot**                                            |
+| ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
+| **Register**                    | Authentication is handled by **Allauth**, allowing users to register for a 100Reads account and start submitting reviews.                     | ![screenshot](documentation/features/register.png)        |
+| **Login**                       | Authentication is handled by **Allauth**, allowing registered users and moderators to securely log in to their accounts.                      | ![screenshot](documentation/features/login.png)           |
+| **Logout**                      | Users can log out of their account securely through Allauth authentication.                                                                   | ![screenshot](documentation/features/logout.png)          |
+| **Book List (Home Page)**       | The homepage displays a selection of books, including their cover image, title, author, and a short description.                              | ![screenshot](documentation/features/book-list.png)       |
+| **View Book Details**           | Users can view detailed information about each book, including a blurb, average rating, and approved user reviews.                            | ![screenshot](documentation/features/view-book.png)       |
+| **Pagination**                  | Books are displayed in paginated lists for better user navigation across the collection of 100 book recommendations.                          | ![screenshot](documentation/features/pagination.png)      |
+| **Add Review**                  | Authenticated users can submit a star rating and a written review for any book. Reviews require moderator approval before appearing publicly. | ![screenshot](documentation/features/add-review.png)      |
+| **Edit Review**                 | Users can edit their own reviews after submission to correct mistakes or update their opinions.                                               | ![screenshot](documentation/features/edit-review.png)     |
+| **Delete Review**               | Users can delete their own reviews if they wish to retract them.                                                                              | ![screenshot](documentation/features/edit-review.png)   |
+| **Review Approval (Moderator)** | Moderators can approve, disapprove, or delete reviews directly from the front-end interface to maintain quality control.                      | ![screenshot](documentation/features/review-approval.png) |
+| **Add Book (Admin)**            | Admins can add new book entries from the Django admin dashboard, including title, author, cover image, and book summary.                      | ![screenshot](documentation/features/add-book.png)        |
+| **Update Book (Admin)**         | Admins can update existing book entries to fix details or update information.                                                                 | ![screenshot](documentation/features/update-book.png)     |
+| **Delete Book (Admin)**         | Admins can delete book entries from the admin dashboard if no longer relevant.                                                                | ![screenshot](documentation/features/update-book.png)     |
+| **About Page**                  | The About page explains the purpose and inspiration behind 100Reads, introducing the project’s mission to encourage reading.                  | ![screenshot](documentation/features/about.png)           |
+| **Contact Form**                | A contact form allows visitors to send inquiries, feedback, or suggestions directly to the site administrators.                               | ![screenshot](documentation/features/contact.png)         |
+| **User Feedback Messages**      | Clear Django messages appear after key actions (e.g., submitting a review or logging in) to provide instant user feedback.                    | ![screenshot](documentation/features/messages.png)        |
+| **Heroku Deployment**           | The 100Reads site is fully deployed on Heroku, ensuring accessibility online and easy application management.                                 | ![screenshot](documentation/features/heroku.png)          |
+| **404 Error Page**              | A custom 404 page guides users back to the homepage when they reach a non-existent or broken link.                                            | ![screenshot](documentation/features/404.png)             |
+
 
 ### Future Features
 
