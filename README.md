@@ -190,30 +190,11 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 
 ### Future Features
 
-⚠️ INSTRUCTIONS ⚠️
-
-Do you have additional ideas that you'd like to include on your project in the future? Fantastic, list them here! It's always great to have plans for future improvements. Consider adding any helpful links or notes to help remind you in the future, if you revisit the project in a couple years.
-
-A few examples are listed below to align with possible ways to improve on the sample walkthrough project, to give you some inspiration.
-
-⚠️ --- END ---⚠️
-
-- **Post Categories/Tags**: Allow users to categorize and tag blog posts, making it easier for visitors to filter content based on their interests.
-- **Post Search Functionality**: Add a search bar for users to quickly find posts by keywords or phrases.
-- **Post Likes/Dislikes or Upvotes**: Implement a "like" or "upvote" system for blog posts to encourage user engagement and give feedback to the author.
-- **User Profiles**: Create personalized user profiles where authenticated users can view their comments, liked posts, and account information.
-- **Comment Replies & Threads**: Enable users to reply to comments, creating nested comment threads for better discussions.
-- **Post Sharing**: Add social media sharing buttons (e.g., Twitter, Facebook, LinkedIn) for users to share blog posts.
-- **Notifications**: Implement a notification system that alerts users when their comments are approved, when new comments are made on a post they've commented on, or when new posts are published.
-- **Email Subscriptions**: Allow users to subscribe to receive email notifications for new posts, updates, or newsletters.
-- **Post Analytics**: Provide post authors with analytics such as views, time spent reading, and engagement rates.
-- **Multilingual Support**: Add the ability to write and view blog posts in multiple languages, broadening the audience.
-- **Related Posts Recommendations**: Show related posts at the bottom of a blog post to encourage further reading and keep users engaged.
-- **Content Flagging/Reporting**: Allow users to flag or report inappropriate content (comments or posts) for moderation.
-- **SEO Optimization**: Implement features for SEO, such as meta tags, custom URLs, and keywords for better search engine ranking.
-- **User Dashboard**: Provide users with a dashboard to track their activity, such as comments made, likes received, and blog posts they’ve interacted with.
-- **Admin Dashboard Analytics**: Provide site admins with an analytics dashboard showing user activity, popular posts, most commented articles, etc.
-- **Custom Themes for Users**: Allow users to customize the visual theme of the site (colors, fonts, etc.) to suit their preferences.
+- **Search Functionality**: AUsers can search for books by title, author, or keyword, making it easy to find specific recommendations.
+- **Ranking by Rating**: Books are ranked and displayed based on their average star rating, allowing users to discover the most highly-rated reads..
+- **Moderator Notifications**: Moderators receive notifications when new reviews are submitted so that I can quickly take action.
+- **Review Sorting Options**: As a reader, I want to sort reviews on the book details page by date or rating so that I can read the most relevant or highest-rated feedback first.
+- **Front-end Moderator Dashboard**: Enhanced front-end moderator dashboard so that moderators can manage reviews and books more efficiently. Dosplaying pending approvals by date of submission. 
 
 ## Tools & Technologies
 
