@@ -218,79 +218,70 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 | [![badge](https://img.shields.io/badge/ChatGPT-grey?logo=openai&logoColor=75A99C)](https://chat.openai.com) | Help debug, troubleshoot, and explain things. |
 | [![badge](https://img.shields.io/badge/Mermaid-grey?logo=mermaid&logoColor=FF3670)](https://mermaid.live) | Generate an interactive diagram for the data/schema. |
 
-⚠️ NOTE ⚠️
-
-Want to add more?
-
-- Tutorial: https://shields.io/badges/static-badge
-- Icons/Logos: https://simpleicons.org
-  - FYI: not all logos are available to use
-
-🛑 --- END --- 🛑
-
 ## Database Design
 
 ### Data Model
-
-Entity Relationship Diagrams (ERD) help to visualize database architecture before creating models. Understanding the relationships between different tables can save time later in the project.
-
-![screenshot](documentation/erd.png)
-
-⚠️ INSTRUCTIONS ⚠️
-
-Using your defined models, create an ERD with the relationships identified. A couple of recommendations for building your own free ERDs:
-- [Lucidchart](https://www.lucidchart.com/pages/ER-diagram-symbols-and-meaning)
-- [Draw.io](https://draw.io)
-
-Looking for an interactive version of your ERD? Consider using a [`Mermaid flowchart`](https://mermaid.live). To simplify the process, you can ask ChatGPT (or similar) the following prompt:
-
-> ChatGPT Prompt:  
-> "Generate a Markdown syntax Mermaid ERD using my Django models"  
-> [paste-your-django-models-into-ChatGPT]
-
-The "I Think Therefore I Blog" sample ERD in Markdown syntax using Mermaid can be seen below as an example.
-
-**NOTE**: A Markdown Preview tool doesn't show the interactive ERD; you must first commit/push the code to your GitHub repository in order to see it live in action.
-
-⚠️ --- END --- ⚠️
 
 I have used `Mermaid` to generate an interactive ERD of my project.
 
 ```mermaid
 erDiagram
-    USER ||--o{ POST : "authors"
-    USER ||--o{ COMMENT : "commenters"
-    POST ||--o{ COMMENT : "has"
-    POST {
+    USER {
+        int id
+        string username
+        string email
+        string password
+    }
+
+    USERPROFILE {
+        int id
+        bool is_moderator
+        int user_id FK
+    }
+
+    BOOK {
+        int id
         string title
         string slug
-        cloudinary featured_image
-        text content
-        text excerpt
-        datetime created_on
-        datetime updated_on
-        int status
+        string author_name
+        text description
+        int published_year
+        string blurb
+        string cover
     }
-    COMMENT {
+
+    REVIEW {
+        int id
         text body
-        datetime created_on
+        int rating
         bool approved
+        datetime created_on
+        int book_id FK
+        int author_id FK
     }
+
     ABOUT {
+        int id
         string title
-        cloudinary profile_image
-        text content
         datetime updated_on
+        text content
     }
-    COLLABORATEREQUEST {
+
+    CONTACT {
+        int id
         string name
         string email
         text message
         bool read
     }
+
+    %% Relationships
+    USER ||--|| USERPROFILE : "has one"
+    USER ||--o{ REVIEW : "writes"
+    BOOK ||--o{ REVIEW : "has many reviews"
 ```
 
-source: [Mermaid](https://mermaid.live/edit#pako:eNqNUstuwjAQ_BVrz6EiVIiSG21zg9LyuFSRkImXxGpsR45TkQb-vU4C5REq4Yut2dnZnfWWECqG4AHqV04jTUUgiT3LuT8ju12no0ryPp0viEcCoLmJlc4CaHNeppOJ_9bQQiUESoMnZq1wgxnTS0rZvKuTGc1lRAw3CbbQLMmjExgmKmdcUl2QDVKTa2QrLmh0lmdwa0iobFPSXKG4DVGnZyijBg0XSEJt1ayWkjeCecpaQS6N7dB2kDXYvrmOjsurymvFijvLrpVKCE1Trb6RXYiPnqfLOwZ3NiMrsuEJ3jeif_3-eRuPbQuz0cKf-R9L_-YnSiraf4iC8uSqvMAsu2iq9m3ncfQMDgjUNpPZla0LBWBitPJQ7ROj-qtaqIpnl1XNCxmCZ3SODjQGDksO3oYmmUVTKsErYQue-zR8cN2B2-t3h73BY2_Qd6AAr7t34Ecpm-HW7M_63UhqlUfxQWr_C_zI_7I)
+source: [Mermaid](https://mermaid.live/edit#pako:eNqVVG1vmzAQ_ivWSf1GoyQkMPjWZqlUdVumtN2kKRJy8A2sgo1s0zRL8t9nyEsDTFXmT_bx3Mvz3HEbiCVDCAHVZ04TRfOFIPY8P07nZLO_V4cLQzh7f2ujuEhIqVEJmmPnA-aUZx1rQbVeSXWIs1uI92Tf57O7-y_Tj3IupcwI11FuK1bUSNWEVrVEnJG7h1b429ns4QIuhpusS0RnZdIx0tKkUkVN5gbfDGGoY8ULw6VoJizKZcZ1iixaI1WdiMusVMuONZavqFps5tMf99OfH_GpC1lKtm5CrGQ2ZktOWhTKJjnzZtSg4TmSWKG9sqjNxPq9nOt8tB9E-VcHbm5nz0__34JTKWXBOqXULGMpDArTSjeZfXu6mVyS8JLZrRPlqDVNsKWeVag9y1dXZI4ZrQZAp7zQZ7_Tdnt9vd02pj0kC0ipJlLgAlpQuTn2ukKtFDeoj6B6pLugKlROxdoW9spxVcPBgURxBqFRJTqQo7L07BNqdRZgUrQaQOXOqHqpXHbWp6Dil5T50U3JMkkh_E0zbV_7fhwWxslqB0A-rkV88kFhf9SJLIWBcDisY0K4gTcIfb838MeuFwTjT0PXGwcOrCEMRj0_GIz7I9_ve54feDsH_tRF9Hv-yA0G7rjvDf1h0A9cB5BxuwO-7tdXvcV2fwEBjmx4)
 
 ⚠️ RECOMMENDED ⚠️
 
