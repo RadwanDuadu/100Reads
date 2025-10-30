@@ -52,20 +52,22 @@ body {
     margin: 4px;
     text-transform: uppercase;
 }
-
-.masthead {
+/* .masthead {
     margin-top: 10px;
-    overflow: hidden;
     position: relative;
-    display: inline-block;
-    height: 33vh;
+    display: block;
     width: 100%;
-}
+    min-height: 40vh; 
+    overflow: visible;
+} 
+*/
 
 .masthead-text {
     background-color: #445261;
     color: white;
     position: relative;
+    z-index: 10; /* ensures text appears above overlays */
+    padding: 2rem; /* add space around text */
 }
 
 .masthead-image {
@@ -81,11 +83,10 @@ body {
     height: 100%;
     width: 150%;
     background: #445261;
-    -webkit-transform: skew(15deg);
-    -moz-transform: skew(15deg);
     transform: skew(15deg);
-    z-index: 100;
+    z-index: 1; /* push behind text */
 }
+
 
 .book-link {
     text-decoration: none;
@@ -97,10 +98,7 @@ body {
     color: #E84610;
 }
 
-.book-title {
-    margin-top: 10%;
-    margin-left: 5%;
-}
+
 
 .book-subtitle {
     margin-left: 5%;
@@ -194,27 +192,6 @@ body {
     color: #ffffff;
 }
 
-/* Image placeholder styling */
-/* .image-container {
-    height: 200px;
-    width: 100%;
-    background-color: #2c2c2c;
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden !important;
-    position: relative;
-    border-radius: 4px;
-}
-
-.image-container img {
-    max-height: 100% !important;
-    max-width: 100% !important;
-    height: auto;  
-    object-fit: cover !important;
-} */
-
 .image-container {
     height: 200px;
     width: 100%;
@@ -242,21 +219,17 @@ hr {
 }
 
 /* Masthead section styling */
-.masthead {
+ .masthead {
     background-color: #1a1a1a;
     padding: 60px 0;
     color: #f0f0f0;
-}
+} 
 
 .masthead-text {
     padding: 20px;
 }
 
-.book-title {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: #ffffff;
-}
+
 
 .book-subtitle {
     font-size: 1.1rem;
@@ -350,12 +323,119 @@ form.signup a.link:hover {
     border: 1px solid #e0e0e0;
 }
 
-/* .book-image {
-    max-height: 300px;
-    object-fit: cover;
-    width: 100%;
+.blurb-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Number of lines you want to show */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 4.5em; /* Adjust depending on your font size and line height */
 }
 
-.card {
-    overflow: hidden;
-} */
+/* === Default (desktop) === */
+.masthead {
+    min-height: 40vh;
+    padding: 60px 0;
+    margin-bottom: 2rem;
+}
+
+.masthead-text {
+    padding: 2rem;
+}
+
+.book-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.book-subtitle {
+    font-size: 1.1rem;
+    color: #cccccc;
+}
+
+/* === Medium screens (tablets: 768px–991px) === */
+@media (max-width: 991px) {
+    .book-title {
+        font-size: 2rem !important; /* smaller than desktop */
+    }
+    .book-subtitle {
+        font-size: 1rem !important;
+    }
+    .masthead-text {
+        padding: 1.5rem !important; /* tighter spacing */
+    }
+    .masthead {
+        min-height: 35vh !important; /* reduce vertical space */
+    }
+}
+
+/* === Small tablets and large phones (577px–767px) === */
+@media (max-width: 767px) {
+    .book-title {
+        font-size: 1.8rem !important;
+        text-align: center;
+    }
+    .book-subtitle {
+        font-size: 0.95rem !important;
+        text-align: center;
+    }
+    .masthead-text {
+        padding: 1.2rem !important;
+    }
+    .masthead {
+        min-height: 32vh !important;
+        padding: 30px 0;
+    }
+}
+
+/* === Mobile screens (up to 576px) === */
+@media (max-width: 576px) {
+    .book-title {
+        font-size: 1.5rem !important;
+        text-align: center;
+        line-height: 1.2;
+        word-break: break-word;
+    }
+    .book-subtitle {
+        font-size: 0.9rem !important;
+        text-align: center;
+    }
+    .masthead-text {
+        padding: 1rem !important;
+    }
+    .masthead {
+        min-height: 28vh !important;
+        padding: 20px 0;
+    }
+}
+
+/* Tablet and small laptop (768px–1199px) */
+@media (max-width: 1199px) and (min-width: 768px) {
+    .masthead {
+        padding-top: 30px !important;
+        padding-bottom: 30px !important;
+        margin-bottom: 1rem !important; /* reduce space below masthead */
+        min-height: 30vh !important; /* make section more compact */
+    }
+
+    .masthead-text {
+        padding: 1.2rem !important; /* smaller padding inside the text block */
+    }
+
+    .container {
+        margin-top: 0 !important; /* remove extra top margin */
+    }
+}
+
+/* Laptop and large screens (≥1200px) */
+@media (min-width: 1200px) {
+    .masthead {
+        padding-top: 40px !important;
+        padding-bottom: 40px !important;
+        margin-bottom: 1.5rem !important;
+        min-height: 35vh !important;
+    }
+}
