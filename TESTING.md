@@ -14,21 +14,13 @@ I have used the recommended [HTML W3C Validator](https://validator.w3.org) to va
 
 | Directory | File | URL | Screenshot | Notes |
 | --- | --- | --- | --- | --- |
-| about | [about.html](https://github.com/RadwanDuadu/100Reads/blob/main/about/templates/about/about.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-about-about.png) | ⚠️ Notes (if applicable) |
-| library | [book_detail.html](https://github.com/RadwanDuadu/100Reads/blob/main/library/templates/library/book_detail.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-library-book_detail.png) | ⚠️ Notes (if applicable) |
-| library | [index.html](https://github.com/RadwanDuadu/100Reads/blob/main/library/templates/library/index.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-library-index.png) | ⚠️ Notes (if applicable) |
-| library | [dashboard.html](https://github.com/RadwanDuadu/100Reads/blob/main/library/templates/moderator/dashboard.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-library-dashboard.png) | ⚠️ Notes (if applicable) |
-| templates | [test_403_csrf.html](https://github.com/RadwanDuadu/100Reads/blob/main/templates/tests/test_403_csrf.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-templates-test_403_csrf.png) | ⚠️ Notes (if applicable) |
-| templates | [email_confirm.html](https://github.com/RadwanDuadu/100Reads/blob/main/templates/account/email_confirm.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-templates-email_confirm.png) | ⚠️ Notes (if applicable) |
-| templates | [login.html](https://github.com/RadwanDuadu/100Reads/blob/main/templates/account/login.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-templates-login.png) | ⚠️ Notes (if applicable) |
-| templates | [logout.html](https://github.com/RadwanDuadu/100Reads/blob/main/templates/account/logout.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-templates-logout.png) | ⚠️ Notes (if applicable) |
-| templates | [password_reset.html](https://github.com/RadwanDuadu/100Reads/blob/main/templates/account/password_reset.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-templates-password_reset.png) | ⚠️ Notes (if applicable) |
-| templates | [password_reset_done.html](https://github.com/RadwanDuadu/100Reads/blob/main/templates/account/password_reset_done.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-templates-password_reset_done.png) | ⚠️ Notes (if applicable) |
-| templates | [password_reset_from_key.html](https://github.com/RadwanDuadu/100Reads/blob/main/templates/account/password_reset_from_key.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-templates-password_reset_from_key.png) | ⚠️ Notes (if applicable) |
-| templates | [password_reset_from_key_done.html](https://github.com/RadwanDuadu/100Reads/blob/main/templates/account/password_reset_from_key_done.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-templates-password_reset_from_key_done.png) | ⚠️ Notes (if applicable) |
-| templates | [signup.html](https://github.com/RadwanDuadu/100Reads/blob/main/templates/account/signup.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-templates-signup.png) | ⚠️ Notes (if applicable) |
-| templates | [verification_sent.html](https://github.com/RadwanDuadu/100Reads/blob/main/templates/account/verification_sent.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-templates-verification_sent.png) | ⚠️ Notes (if applicable) |
-
+| about | [about.html](https://github.com/RadwanDuadu/100Reads/blob/main/about/templates/about/about.html) | [Link](https://validator.w3.org/nu/?doc=https%3A%2F%2Fread100-abad619e4cf8.herokuapp.com%2Fabout) | ![screenshot](documentation/validation/about.png) | No Notes |
+| library | [book_detail.html](https://github.com/RadwanDuadu/100Reads/blob/main/library/templates/library/book_detail.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/book-detail.png) | No Notes |
+| library | [index.html](https://github.com/RadwanDuadu/100Reads/blob/main/library/templates/library/index.html) | [Link](https://validator.w3.org/nu/?doc=https%3A%2F%2Fread100-abad619e4cf8.herokuapp.com%2F) | ![screenshot](documentation/validation/index.png) | No Notes |
+| library | [dashboard.html](https://github.com/RadwanDuadu/100Reads/blob/main/library/templates/moderator/dashboard.html) | Manual Input | ![screenshot](documentation/validation/dashboard.png) | No Notes |
+| templates | [login.html](https://github.com/RadwanDuadu/100Reads/blob/main/templates/account/login.html) | [Link](https://validator.w3.org/nu/?doc=https%3A%2F%2Fread100-abad619e4cf8.herokuapp.com%2Faccounts%2Flogin) | ![screenshot](documentation/validation/login.png) | No Notes |
+| templates | [logout.html](https://github.com/RadwanDuadu/100Reads/blob/main/templates/account/logout.html) | [Link](https://validator.w3.org/nu/?doc=https%3A%2F%2Fread100-abad619e4cf8.herokuapp.com%2Faccounts%2Flogout%2F) | ![screenshot](documentation/validation/logout.png) | No Notes |
+| templates | [signup.html](https://github.com/RadwanDuadu/100Reads/blob/main/templates/account/signup.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-templates-signup.png) | No Notes |
 
 ### CSS
 
