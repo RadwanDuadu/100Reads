@@ -4,6 +4,7 @@ from .models import About
 from .forms import ContactForm
 
 
+# Test class for About view
 class TestAboutView(TestCase):
 
     def setUp(self):
@@ -19,7 +20,7 @@ class TestAboutView(TestCase):
         self.assertIn(b'About Me', response.content)
         self.assertIsInstance(
             response.context['contact_form'], ContactForm)
-        
+
     def test_successful_contact_request_submission(self):
         """Test for a user requesting a contact"""
         post_data = {

@@ -2,6 +2,7 @@ from django.test import TestCase
 from .forms import ContactForm
 
 
+# Test class for ContactForm
 class TestContactForm(TestCase):
 
     def test_form_is_valid(self):
@@ -12,7 +13,7 @@ class TestContactForm(TestCase):
             'message': 'Hello!'
         })
         self.assertTrue(form.is_valid(), msg="Contact Form is not valid")
-    
+
     def test_name_is_required(self):
         """Test for the 'name' field"""
         form = ContactForm({
