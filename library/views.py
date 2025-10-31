@@ -1,16 +1,16 @@
 from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth.decorators import login_required, user_passes_test
-from django.db.models import Sum, Avg
+from django.db.models import Avg
 from django.views import generic
 from django.contrib import messages
 from django.http import HttpResponseRedirect
-from .models import Book, Review, UserProfile
+from .models import Book, Review
 from .forms import ReviewForm
 
 
-# Create your views here.
 class BookList(generic.ListView):
+    """Display paginated list of all books."""
     queryset = Book.objects.all()
     template_name = "library/index.html"
     paginate_by = 6
@@ -18,32 +18,26 @@ class BookList(generic.ListView):
 
 def book_detail(request, slug):
     """
-    Display an individual :model:`library.Book`.
-
-    **Context**
-
-    ``book``
-        An instance of :model:`library.Book`.
-
-    **Template:**
-
-    :template:`library/book_detail.html`
+    Display a single book and its reviews, with pagination and review form.
     """
-
     queryset = Book.objects.all()
     book = get_object_or_404(queryset, slug=slug)
 
-    # All reviews for pagination (approved + unapproved if needed)
+    # Get all reviews for pagination
     reviews = book.Reviews.all().order_by("-created_on")
 
-    # Count of only approved reviews
+    # Count approved reviews
     review_count = book.Reviews.filter(approved=True).count()
 
-    # Add after total_views
-    average_rating = book.Reviews.filter(approved=True).aggregate(avg=Avg('rating'))['avg'] or 0
-    average_rating = round(average_rating)  # Round to nearest integer (1 to 5)
+    # Calculate average rating from approved reviews
+    average_rating = (
+        book.Reviews.filter(approved=True)
+        .aggregate(avg=Avg('rating'))['avg']
+        or 0
+    )
+    average_rating = round(average_rating)
 
-    # PAGINATION: Show 3 reviews per page
+    # Pagination: 3 reviews per page
     paginator = Paginator(reviews, 3)
     page = request.GET.get("page")
 
@@ -53,7 +47,8 @@ def book_detail(request, slug):
         page_obj = paginator.page(1)
     except EmptyPage:
         page_obj = paginator.page(paginator.num_pages)
-    
+
+    # Handle review submission
     if request.method == "POST":
         review_form = ReviewForm(data=request.POST)
         if review_form.is_valid():
@@ -62,10 +57,13 @@ def book_detail(request, slug):
             review.book = book
             review.save()
             messages.add_message(
-                request, messages.SUCCESS,
+                request,
+                messages.SUCCESS,
                 'Review submitted and awaiting approval'
             )
-            return HttpResponseRedirect(reverse('book_detail', args=[slug]))  # <-- This prevents double-posting
+            return HttpResponseRedirect(
+                reverse('book_detail', args=[slug])
+            )
 
     review_form = ReviewForm()
 
@@ -74,21 +72,18 @@ def book_detail(request, slug):
         "library/book_detail.html",
         {
             "book": book,
-            "reviews": page_obj.object_list,  # reviews for this page
-            "page_obj": page_obj,             # pass page_obj for pagination controls
+            "reviews": page_obj.object_list,
+            "page_obj": page_obj,
             "review_count": review_count,
             "review_form": review_form,
-            "average_rating": average_rating,          # total views from approved reviews
+            "average_rating": average_rating,
         },
     )
 
 
 def review_edit(request, slug, review_id):
-    """
-    view to edit reviews
-    """
+    """Edit an existing review."""
     if request.method == "POST":
-
         queryset = Book.objects.all()
         book = get_object_or_404(queryset, slug=slug)
         review = get_object_or_404(Review, pk=review_id)
@@ -99,58 +94,72 @@ def review_edit(request, slug, review_id):
             review.book = book
             review.approved = False
             review.save()
-            messages.add_message(request, messages.SUCCESS, 'review Updated!')
+            messages.add_message(
+                request, messages.SUCCESS, 'Review updated!'
+            )
         else:
-            messages.add_message(request, messages.ERROR, 'Error updating review!')
+            messages.add_message(
+                request, messages.ERROR, 'Error updating review!'
+            )
 
     return HttpResponseRedirect(reverse('review_detail', args=[slug]))
 
 
 def review_delete(request, slug, review_id):
-    """
-    view to delete review
-    """
+    """Delete a user's own review."""
     queryset = Book.objects.all()
     book = get_object_or_404(queryset, slug=slug)
     review = get_object_or_404(Review, pk=review_id)
 
     if review.author == request.user:
         review.delete()
-        messages.add_message(request, messages.SUCCESS, 'review deleted!')
+        messages.add_message(request, messages.SUCCESS, 'Review deleted!')
     else:
-        messages.add_message(request, messages.ERROR, 'You can only delete your own reviews!')
+        messages.add_message(
+            request, messages.ERROR,
+            'You can only delete your own reviews!'
+        )
 
     return HttpResponseRedirect(reverse('book_detail', args=[slug]))
 
 
 def is_moderator(user):
+    """Check if the user has moderator privileges."""
     return hasattr(user, 'userprofile') and user.userprofile.is_moderator
+
 
 @login_required
 @user_passes_test(is_moderator)
 def moderator_dashboard(request):
+    """Display all reviews for moderators."""
     reviews = Review.objects.all().order_by('-created_on')
     return render(request, 'moderator/dashboard.html', {'reviews': reviews})
+
 
 @login_required
 @user_passes_test(is_moderator)
 def approve_review(request, review_id):
+    """Allow moderators to approve a review."""
     review = get_object_or_404(Review, id=review_id)
     review.approved = True
     review.save()
     messages.success(request, "Review approved successfully.")
     return redirect('moderator_dashboard')
 
+
 @login_required
 @user_passes_test(is_moderator)
-def delete_review(request, review_id):
+def delete_review_moderator(request, review_id):
+    """Allow moderators to delete any review."""
     review = get_object_or_404(Review, id=review_id)
     review.delete()
     messages.success(request, "Review deleted successfully.")
     return redirect('moderator_dashboard')
 
+
 @login_required
 def delete_review(request, review_id):
+    """Allow users to delete their own or moderator delete others' reviews."""
     review = get_object_or_404(Review, id=review_id)
 
     if request.user.userprofile.is_moderator or review.author == request.user:

@@ -48,12 +48,14 @@ class Review(models.Model):
     def __str__(self):
         return f"Comment {self.body} by {self.author}"
 
+
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     is_moderator = models.BooleanField(default=False)
 
     def __str__(self):
         return f"{self.user.username} Profile"
+
 
 @receiver(post_save, sender=User)
 def create_or_update_user_profile(sender, instance, created, **kwargs):
