@@ -15,12 +15,12 @@ I have used the recommended [HTML W3C Validator](https://validator.w3.org) to va
 | Directory | File | URL | Screenshot | Notes |
 | --- | --- | --- | --- | --- |
 | about | [about.html](https://github.com/RadwanDuadu/100Reads/blob/main/about/templates/about/about.html) | [Link](https://validator.w3.org/nu/?doc=https%3A%2F%2Fread100-abad619e4cf8.herokuapp.com%2Fabout) | ![screenshot](documentation/validation/about.png) | No Notes |
-| library | [book_detail.html](https://github.com/RadwanDuadu/100Reads/blob/main/library/templates/library/book_detail.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/book-detail.png) | No Notes |
+| library | [book_detail.html](https://github.com/RadwanDuadu/100Reads/blob/main/library/templates/library/book_detail.html) | [Link](https://validator.w3.org/nu/?doc=https%3A%2F%2Fread100-abad619e4cf8.herokuapp.com%2Fharry-potter-and-the-prisoner-of-azkaban-harry-potter-3%2F) | ![screenshot](documentation/validation/book-detail.png) | No Notes |
 | library | [index.html](https://github.com/RadwanDuadu/100Reads/blob/main/library/templates/library/index.html) | [Link](https://validator.w3.org/nu/?doc=https%3A%2F%2Fread100-abad619e4cf8.herokuapp.com%2F) | ![screenshot](documentation/validation/index.png) | No Notes |
 | library | [dashboard.html](https://github.com/RadwanDuadu/100Reads/blob/main/library/templates/moderator/dashboard.html) | Manual Input | ![screenshot](documentation/validation/dashboard.png) | No Notes |
 | templates | [login.html](https://github.com/RadwanDuadu/100Reads/blob/main/templates/account/login.html) | [Link](https://validator.w3.org/nu/?doc=https%3A%2F%2Fread100-abad619e4cf8.herokuapp.com%2Faccounts%2Flogin) | ![screenshot](documentation/validation/login.png) | No Notes |
 | templates | [logout.html](https://github.com/RadwanDuadu/100Reads/blob/main/templates/account/logout.html) | [Link](https://validator.w3.org/nu/?doc=https%3A%2F%2Fread100-abad619e4cf8.herokuapp.com%2Faccounts%2Flogout%2F) | ![screenshot](documentation/validation/logout.png) | No Notes |
-| templates | [signup.html](https://github.com/RadwanDuadu/100Reads/blob/main/templates/account/signup.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-templates-signup.png) | No Notes |
+| templates | [signup.html](https://github.com/RadwanDuadu/100Reads/blob/main/templates/account/signup.html) | [Link](https://validator.w3.org/nu/?doc=https%3A%2F%2Fread100-abad619e4cf8.herokuapp.com%2Faccounts%2Fsignup%2F) | ![screenshot](documentation/validation/signup.png) | No Notes |
 
 ### CSS
 

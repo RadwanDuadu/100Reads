@@ -1,3 +1,6 @@
+/* =========================================================
+   1. BASE STYLES
+   ========================================================= */
 body {
     background-color: #F9FAFC;
 }
@@ -29,45 +32,23 @@ body {
     background-color: #F9FAFC;
 }
 
-
-/* .image-container {
-    position: relative;
-} */
-
-.image-flash {
-    position: absolute;
-    bottom: 5%;
-    min-width: 30%;
-    left: -2px;
-    background-color: #188181;
+/* =========================================================
+   2. MASTHEAD SECTION
+   ========================================================= */
+.masthead {
+    background-color: #1a1a1a;
+    padding: 60px 0;
+    color: #f0f0f0;
+    min-height: 40vh;
+    margin-bottom: 2rem;
 }
-
-.scale {
-    width: 100%;
-    height: auto;
-}
-
-.author {
-    color: white;
-    margin: 4px;
-    text-transform: uppercase;
-}
-/* .masthead {
-    margin-top: 10px;
-    position: relative;
-    display: block;
-    width: 100%;
-    min-height: 40vh; 
-    overflow: visible;
-} 
-*/
 
 .masthead-text {
     background-color: #445261;
     color: white;
     position: relative;
-    z-index: 10; /* ensures text appears above overlays */
-    padding: 2rem; /* add space around text */
+    z-index: 10;
+    padding: 2rem;
 }
 
 .masthead-image {
@@ -84,10 +65,26 @@ body {
     width: 150%;
     background: #445261;
     transform: skew(15deg);
-    z-index: 1; /* push behind text */
+    z-index: 1;
 }
 
+.book-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin: 0;
+    line-height: 1.2;
+}
 
+.book-subtitle {
+    font-size: 1.1rem;
+    color: #cccccc;
+    margin-left: 5%;
+}
+
+/* =========================================================
+   3. LINKS & BUTTONS
+   ========================================================= */
 .book-link {
     text-decoration: none;
     color: #445261;
@@ -98,11 +95,15 @@ body {
     color: #E84610;
 }
 
+.link {
+    color: #23BBBB;
+    text-decoration: none;
+}
 
-
-.book-subtitle {
-    margin-left: 5%;
-    color: lightgray;
+.link:hover,
+.link:active {
+    color: #445261;
+    text-decoration: underline;
 }
 
 .btn-signup,
@@ -117,26 +118,15 @@ body {
     color: #23BBBB;
 }
 
-.link {
-    color: #23BBBB;
-    text-decoration: none;
-}
-
-.link:hover,
-.link:active {
-    color: #445261;
-    text-decoration: underline;
+.btn-delete {
+    color: #fff;
+    background: #E84610;
 }
 
 .btn-like {
     color: #E84610;
     border: none;
     background: transparent;
-}
-
-.btn-delete {
-    color: #fff;
-    background: #E84610;
 }
 
 .btn-like:hover,
@@ -146,12 +136,9 @@ body {
     border: none;
 }
 
-.faded {
-    color: rgb(172, 175, 175);
-}
-
-
-/* Card styling */
+/* =========================================================
+   4. CARD STYLES (Books, Reviews, etc.)
+   ========================================================= */
 .card {
     background-color: #8B5E3C;
     border: 1px solid #2a2a2a;
@@ -176,20 +163,42 @@ body {
 
 .card .author {
     font-size: 0.9rem;
-    /* color: #888888; */
-    /* margin-bottom: 0.5rem; */
 }
 
-/* Pagination */
-.pagination .page-link {
-    background-color: #1f1f1f;
-    color: #cccccc;
-    border: 1px solid #333333;
+.review-card {
+    background-color: #fefefe;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    color: #333333;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-.pagination .page-link:hover {
-    background-color: #333333;
-    color: #ffffff;
+.review-card h3 {
+    color: #8B5E3C;
+}
+
+.reviews {
+    background-color: #f8f9fa;
+    border-radius: 6px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #e0e0e0;
+}
+
+/* =========================================================
+   5. IMAGE & MEDIA STYLES
+   ========================================================= */
+.image-flash {
+    position: absolute;
+    bottom: 5%;
+    min-width: 30%;
+    left: -2px;
+    background-color: #188181;
+}
+
+.scale {
+    width: 100%;
+    height: auto;
 }
 
 .image-container {
@@ -208,45 +217,18 @@ body {
     display: block;
 }
 
-
-/* Utilities */
-.left {
-    padding: 20px;
-}
-
-hr {
-    border-top: 1px solid #2e2e2e;
-}
-
-/* Masthead section styling */
- .masthead {
-    background-color: #1a1a1a;
-    padding: 60px 0;
-    color: #f0f0f0;
-} 
-
-.masthead-text {
-    padding: 20px;
-}
-
-
-
-.book-subtitle {
-    font-size: 1.1rem;
-    color: #cccccc;
-}
-
-/* Shared form styles for login and signup */
+/* =========================================================
+   6. FORM STYLES (Login & Signup)
+   ========================================================= */
 form.login,
 form.signup {
-    background-color: #8B5E3C; /* Rustic brown */
+    background-color: #8B5E3C;
     padding: 2rem;
     border-radius: 8px;
     color: #ffffff;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-/* Input field styling for both forms */
 form.login input[type="text"],
 form.login input[type="password"],
 form.login input[type="email"],
@@ -263,20 +245,17 @@ form.signup input[type="email"] {
     margin-top: 0.25rem;
 }
 
-/* Labels */
 form.login .form-label,
 form.signup .form-label {
     font-weight: bold;
     color: #ffffff;
 }
 
-/* Error styling */
 form.login .text-danger,
 form.signup .text-danger {
     color: #ffb3b3;
 }
 
-/* Buttons (already styled using .btn-signup globally) */
 form.signup .btn-signup {
     background-color: #ffffff;
     color: #8B5E3C;
@@ -292,9 +271,8 @@ form.signup .btn-signup:hover {
     color: #8B5E3C;
 }
 
-/* Signup link styling (e.g., "sign in" link) */
 form.signup a.link {
-    color: #FFD580; /* Soft gold */
+    color: #FFD580;
 }
 
 form.signup a.link:hover {
@@ -302,77 +280,65 @@ form.signup a.link:hover {
     text-decoration: underline;
 }
 
-/* Lighter background for review cards */
-.review-card {
-    background-color: #fefefe; /* Soft off-white */
-    border: 1px solid #dddddd;
-    border-radius: 8px;
-    color: #333333;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+/* =========================================================
+   7. PAGINATION
+   ========================================================= */
+.pagination .page-link {
+    background-color: #1f1f1f;
+    color: #cccccc;
+    border: 1px solid #333333;
 }
 
-.review-card h3 {
-    color: #8B5E3C; /* Rustic brown for title */
+.pagination .page-link:hover {
+    background-color: #333333;
+    color: #ffffff;
 }
 
-.reviews {
-    background-color: #f8f9fa;
-    border-radius: 6px;
-    padding: 1rem;
-    margin-bottom: 1rem;
-    border: 1px solid #e0e0e0;
+/* =========================================================
+   8. UTILITIES
+   ========================================================= */
+.left {
+    padding: 20px;
+}
+
+hr {
+    border-top: 1px solid #2e2e2e;
+}
+
+.faded {
+    color: rgb(172, 175, 175);
 }
 
 .blurb-text {
     display: -webkit-box;
-    -webkit-line-clamp: 3; /* Number of lines you want to show */
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
-    height: 4.5em; /* Adjust depending on your font size and line height */
+    height: 4.5em;
 }
 
-/* === Default (desktop) === */
-.masthead {
-    min-height: 40vh;
-    padding: 60px 0;
-    margin-bottom: 2rem;
-}
+/* =========================================================
+   9. RESPONSIVE DESIGN
+   ========================================================= */
 
-.masthead-text {
-    padding: 2rem;
-}
-
-.book-title {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: #ffffff;
-    margin: 0;
-    line-height: 1.2;
-}
-
-.book-subtitle {
-    font-size: 1.1rem;
-    color: #cccccc;
-}
-
-/* === Medium screens (tablets: 768px–991px) === */
+/* --- Medium screens (tablets: ≤991px) --- */
 @media (max-width: 991px) {
     .book-title {
-        font-size: 2rem !important; /* smaller than desktop */
+        font-size: 2rem !important;
     }
     .book-subtitle {
         font-size: 1rem !important;
     }
     .masthead-text {
-        padding: 1.5rem !important; /* tighter spacing */
+        padding: 1.5rem !important;
     }
     .masthead {
-        min-height: 35vh !important; /* reduce vertical space */
+        min-height: 35vh !important;
     }
 }
 
-/* === Small tablets and large phones (577px–767px) === */
+/* --- Small tablets & large phones (≤767px) --- */
 @media (max-width: 767px) {
     .book-title {
         font-size: 1.8rem !important;
@@ -391,7 +357,7 @@ form.signup a.link:hover {
     }
 }
 
-/* === Mobile screens (up to 576px) === */
+/* --- Mobile (≤576px) --- */
 @media (max-width: 576px) {
     .book-title {
         font-size: 1.5rem !important;
@@ -412,25 +378,23 @@ form.signup a.link:hover {
     }
 }
 
-/* Tablet and small laptop (768px–1199px) */
+/* --- Tablets & Small Laptops (768px–1199px) --- */
 @media (max-width: 1199px) and (min-width: 768px) {
     .masthead {
         padding-top: 30px !important;
         padding-bottom: 30px !important;
-        margin-bottom: 1rem !important; /* reduce space below masthead */
-        min-height: 30vh !important; /* make section more compact */
+        margin-bottom: 1rem !important;
+        min-height: 30vh !important;
     }
-
     .masthead-text {
-        padding: 1.2rem !important; /* smaller padding inside the text block */
+        padding: 1.2rem !important;
     }
-
     .container {
-        margin-top: 0 !important; /* remove extra top margin */
+        margin-top: 0 !important;
     }
 }
 
-/* Laptop and large screens (≥1200px) */
+/* --- Large screens (≥1200px) --- */
 @media (min-width: 1200px) {
     .masthead {
         padding-top: 40px !important;
