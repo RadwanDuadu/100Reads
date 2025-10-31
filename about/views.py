@@ -13,8 +13,12 @@ def about_me(request):
         if contact_form.is_valid():
             contact_form.save()
             messages.add_message(
-                request, messages.SUCCESS,
-                "Contact request received! I endeavour to respond within 2 working days."
+                request,
+                messages.SUCCESS,
+                (
+                    "Contact request received! "
+                    "I endeavour to respond within 2 working days."
+                ),
             )
 
     """
