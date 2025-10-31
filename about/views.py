@@ -12,7 +12,10 @@ def about_me(request):
         contact_form = ContactForm(data=request.POST)
         if contact_form.is_valid():
             contact_form.save()
-            messages.add_message(request, messages.SUCCESS, "Contact request received! I endeavour to respond within 2 working days.")
+            messages.add_message(
+                request, messages.SUCCESS,
+                "Contact request received! I endeavour to respond within 2 working days."
+            )
 
     """
     Renders the About page
