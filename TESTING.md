@@ -153,36 +153,28 @@ Defensive programming was manually tested with the below user acceptance testing
 
 ## User Story Testing
 
-⚠️ INSTRUCTIONS ⚠️
 
-Testing User Stories is actually quite simple, once you've already got the stories defined on your README.
+| Target               | Expectation                                                                             | Outcome                                                                        | Screenshot                                          |
+| -------------------- | --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ | --------------------------------------------------- |
+| As a site visitor    | I would like to view a list of available books on the home page                         | so that I can explore what books are available in the library.                 | ![screenshot](documentation/features/book-list.png) |
+| As a site visitor    | I would like to view book details including title, author, description, and cover image | so that I can decide whether I want to read or review that book.               | ![screenshot](documentation/features/book-list.png) |
+| As a registered user | I would like to register for an account                                                 | so that I can log in and leave reviews for books I’ve read.                    | ![screenshot](documentation/features/register.png) |
+| As a registered user | I would like to log in to the site                                                      | so that I can submit reviews and access personalized features.                 | ![screenshot](documentation/features/login.png) |
+| As a registered user | I would like to log out of the site securely                                            | so that my account remains safe when using a shared device.                    | ![screenshot](documentation/features/logout.png) |
+| As a registered user | I would like to submit a review on a book detail page                                   | so that I can share my opinion about the book.                                 | ![screenshot](documentation/features/add-review.png) |
+| As a registered user | I would like to receive a message that my review is pending approval                    | so that I know it will be published after moderator verification.              | ![screenshot](documentation/features/review-approval.png) |
+| As a registered user | I would like to edit my own reviews                                                     | so that I can fix errors or update my feedback.                                | ![screenshot](documentation/features/edit-review.png) |
+| As a registered user | I would like to delete my own reviews                                                   | so that I can remove comments I no longer wish to display.                     | ![screenshot](documentation/features/edit-review.png) |
+| As a moderator       | I would like to view all submitted reviews in one dashboard                             | so that I can easily manage and moderate user content.                         | ![screenshot](documentation/features/desktop-dashboard.png) |
+| As a moderator       | I would like to approve pending reviews                                                 | so that only appropriate and relevant content appears on the site.             | ![screenshot](documentation/features/desktop-dashboard.png) |
+| As a moderator       | I would like to delete any user’s review                                                | so that I can remove spam or offensive content.                                | ![screenshot](documentation/features/desktop-dashboard.png) |
+| As a user            | I would like to see the average rating for each book                                    | so that I can gauge how other readers have rated it.                           | ![screenshot](documentation/features/book-reviews.png) |
+| As a guest user      | I would like to browse books without needing to log in                                  | so that I can freely explore the library’s collection.                         | ![screenshot](documentation/features/book-list.png) |
+| As a guest user      | I would like to be redirected to the login page when trying to post a review            | so that I understand I need an account to participate.                         | ![screenshot](documentation/features/review-login-required.png) |
+| As a site visitor    | I would like to visit the About page                                                    | so that I can learn more about the purpose and creator of the library website. | ![screenshot](documentation/features/about.png) |
+| As a site visitor    | I would like to send a message through the contact form on the About page               | so that I can reach out with questions or feedback.                            | ![screenshot](documentation/features/contact.png) |
+| As a user            | I would like to see meaningful error pages such as a 404 page                           | so that I know when I’ve accessed a page that doesn’t exist.                   | ![screenshot](documentation/features/404.png) |
 
-Most of your project's **Features** should already align with the **User Stories**, so this should be as simple as creating a table with the User Story, matching with the re-used screenshot from the respective Feature.
-
-⚠️ --- END --- ⚠️
-
-| Target | Expectation | Outcome | Screenshot |
-| --- | --- | --- | --- |
-| As a blog owner | I would like to create new blog posts with a title, featured image, and content | so that I can share my experiences with my audience. | ![screenshot](documentation/features/feature01.png) |
-| As a blog owner | I would like to update existing blog posts | so that I can correct or add new information to my previous stories. | ![screenshot](documentation/features/feature02.png) |
-| As a blog owner | I would like to delete blog posts | so that I can remove outdated or irrelevant content from my blog. | ![screenshot](documentation/features/feature03.png) |
-| As a blog owner | I would like to retrieve a list of all my published blog posts | so that I can manage them from a central dashboard. | ![screenshot](documentation/features/feature04.png) |
-| As a blog owner | I would like to preview a post as draft before publishing it | so that I can ensure formatting and content appear correctly. | ![screenshot](documentation/features/feature05.png) |
-| As a blog owner | I would like to review comments before they are published | so that I can filter out spam or inappropriate content. | ![screenshot](documentation/features/feature06.png) |
-| As a blog owner | I would like to approve or reject comments from users | so that I can maintain control over the discussion on my posts. | ![screenshot](documentation/features/feature07.png) |
-| As a blog owner | I would like to view a list of all comments (both approved and pending) | so that I can manage user engagement effectively. | ![screenshot](documentation/features/feature08.png) |
-| As a blog owner | I would like to edit or delete user comments | so that I can clean up or remove inappropriate responses after they've been posted. | ![screenshot](documentation/features/feature09.png) |
-| As a registered user | I would like to log in to the site | so that I can leave comments on blog posts. | ![screenshot](documentation/features/feature10.png) |
-| As a registered user | I would like to register for an account | so that I can become part of the community and engage with the blog. | ![screenshot](documentation/features/feature11.png) |
-| As a registered user | I would like to leave a comment on a blog post | so that I can share my thoughts or ask questions about the owner's experiences. | ![screenshot](documentation/features/feature12.png) |
-| As a registered user | I would like my comment to show my name and the timestamp | so that others can see who I am and when I left the comment. | ![screenshot](documentation/features/feature13.png) |
-| As a registered user | I would like to receive a notification or message saying my comment is pending approval | so that I understand it hasn't been posted immediately. | ![screenshot](documentation/features/feature14.png) |
-| As a registered user | I would like to edit or delete my own comments | so that I can fix mistakes or retract my statement. | ![screenshot](documentation/features/feature15.png) |
-| As a guest user | I would like to read blog posts without registering | so that I can enjoy the content without needing to log in. | ![screenshot](documentation/features/feature16.png) |
-| As a guest user | I would like to browse past posts | so that I can explore the blog's full content history. | ![screenshot](documentation/features/feature17.png) |
-| As a guest user | I would like to register for an account | so that I can participate in the community by leaving comments on posts. | ![screenshot](documentation/features/feature18.png) |
-| As a guest user | I would like to see the names of other commenters on posts | so that I can get a sense of community interaction before registering. | ![screenshot](documentation/features/feature19.png) |
-| As a user | I would like to see a 404 error page if I get lost | so that it's obvious that I've stumbled upon a page that doesn't exist. | ![screenshot](documentation/features/feature20.png) |
 
 ## Automated Testing
 
