@@ -127,65 +127,29 @@ I've tested my deployed project using the Lighthouse Audit tool to check for any
 
 ## Defensive Programming
 
-⚠️ INSTRUCTIONS ⚠️
-
-Defensive programming (defensive design) is extremely important! When building projects that accept user inputs or forms, you should always test the level of security for each form field. Examples of this could include (but not limited to):
-
-All Projects:
-
-- Users cannot submit an empty form (add the `required` attribute)
-- Users must enter valid field types (ensure the correct input `type=""` is used)
-- Users cannot brute-force a URL to navigate to a restricted pages
-
-Python Projects:
-
-- Users cannot perform CRUD functionality if not authenticated (if login functionality exists)
-- User-A should not be able to manipulate data belonging to User-B, or vice versa
-- Non-Authenticated users should not be able to access pages that require authentication
-- Standard users should not be able to access pages intended for superusers/admins
-
-You'll want to test all functionality on your application, whether it's a standard form, or CRUD functionality, for data manipulation on a database. Try to access various pages on your site as different user types (User-A, User-B, guest user, admin, superuser). You should include any manual tests performed, and the expected results/outcome.
-
-Testing should be replicable (can someone else replicate the same outcome?). Ideally, tests cases should focus on each individual section of every page on the website. Each test case should be specific, objective, and step-wise replicable.
-
-Instead of adding a general overview saying that everything works fine, consider documenting tests on each element of the page (eg. button clicks, input box validation, navigation links, etc.) by testing them in their "happy flow", their "bad/exception flow", mentioning the expected and observed results, and drawing a parallel between them where applicable.
-
-Consider using the following format for manual test cases:
-
-- Expected Outcome / Test Performed / Result Received / Fixes Implemented
-
-- **Expected**: "Feature is expected to do X when the user does Y."
-- **Testing**: "Tested the feature by doing Y."
-- (either) **Result**: "The feature behaved as expected, and it did Y."
-- (or) **Result**: "The feature did not respond to A, B, or C."
-- **Fix**: "I did Z to the code because something was missing."
-
-Use the table below as a basic start, and expand on it using the logic above.
-
-⚠️ --- END --- ⚠️
-
 Defensive programming was manually tested with the below user acceptance testing:
 
-| Page | Expectation | Test | Result | Screenshot |
-| --- | --- | --- | --- | --- |
-| Blog Management | Feature is expected to allow the blog owner to create new posts with a title, featured image, and content. | Created a new post with valid title, image, and content data. | Post was created successfully and displayed correctly in the blog. | ![screenshot](documentation/defensive/create-post.png) |
-| | Feature is expected to allow the blog owner to update existing posts. | Edited the content of an existing blog post. | Post was updated successfully with the new content. | ![screenshot](documentation/defensive/update-post.png) |
-| | Feature is expected to allow the blog owner to delete blog posts. | Attempted to delete a blog post, confirming the action before proceeding. | Blog post was deleted successfully. | ![screenshot](documentation/defensive/delete-post.png) |
-| | Feature is expected to retrieve a list of all published posts. | Accessed the blog owner dashboard to view all published posts. | All published posts were displayed in a list view. | ![screenshot](documentation/defensive/published-posts.png) |
-| | Feature is expected to preview posts as drafts before publishing. | Created a draft post and previewed it. | Draft was displayed correctly in preview mode. | ![screenshot](documentation/defensive/preview-draft.png) |
-| Comments Management | Feature is expected to allow the blog owner to approve or reject comments. | Approved and rejected comments from the dashboard. | Approved comments were published; rejected comments were removed. | ![screenshot](documentation/defensive/review-comments.png) |
-| | Feature is expected to allow the blog owner to edit or delete comments. | Edited and deleted existing comments. | Comments were updated or removed successfully. | ![screenshot](documentation/defensive/edit-delete-comments.png) |
-| User Authentication | Feature is expected to allow registered users to log in to the site. | Attempted to log in with valid and invalid credentials. | Login was successful with valid credentials; invalid credentials were rejected. | ![screenshot](documentation/defensive/login.png) |
-| | Feature is expected to allow users to register for an account. | Registered a new user with unique credentials. | User account was created successfully. | ![screenshot](documentation/defensive/register.png) |
-| | Feature is expected to allow users to log out securely. | Logged out and tried accessing a restricted page. | Access was denied after logout, as expected. | ![screenshot](documentation/defensive/logout.png) |
-| User Comments | Feature is expected to allow registered users to leave comments on blog posts. | Logged in and added comments to a blog post. | Comments were successfully added and marked as pending approval. | ![screenshot](documentation/defensive/add-comment.png) |
-| | Feature is expected to display a notification that comments are pending approval. | Added a comment and checked the notification message. | Notification was displayed as expected. | ![screenshot](documentation/defensive/pending-approval.png) |
-| | Feature is expected to allow users to edit their own comments. | Edited personal comments. | Comments were updated as expected. | ![screenshot](documentation/defensive/edit-user-comments.png) |
-| | Feature is expected to allow users to delete their own comments. | Deleted personal comments. | Comments were removed as expected. | ![screenshot](documentation/defensive/delete-user-comments.png) |
-| Guest Features | Feature is expected to allow guest users to read blog posts without registering. | Opened blog posts as a guest user. | Blog posts were fully accessible without logging in. | ![screenshot](documentation/defensive/view-posts-guest.png) |
-| | Feature is expected to display the names of other commenters on posts. | Checked the names of commenters on posts as a guest user. | Commenter names were displayed as expected. | ![screenshot](documentation/defensive/commenter-names.png) |
-| | Feature is expected to block standard users from brute-forcing admin pages. | Attempted to navigate to admin-only pages by manipulating the URL (e.g., `/admin`). | Access was blocked, and a message was displayed showing denied access. | ![screenshot](documentation/defensive/brute-force.png) |
-| 404 Error Page | Feature is expected to display a 404 error page for non-existent pages. | Navigated to an invalid URL (e.g., `/test`). | A custom 404 error page was displayed as expected. | ![screenshot](documentation/defensive/404.png) |
+| Page                          | Expectation                                                                                      | Test                                                      | Result                                                                     | Screenshot                                                       |
+| ----------------------------- | ------------------------------------------------------------------------------------------------ | --------------------------------------------------------- | -------------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| **Home Page (Library Index)** | Expected to display a paginated list of all available books with title, author, and cover image. | Accessed the home page as a guest user.                   | All books were displayed with correct details, pagination worked properly. | ![screenshot](documentation/defensive/desktop-home.png)            |
+|                               | Expected to allow navigation to individual book detail pages.                                    | Clicked on a book title or image.                         | Redirected to the correct book detail page.                                | ![screenshot](documentation/defensive/desktop-book-detail.png)       |
+| **Book Detail Page**          | Expected to display detailed book information (title, author, description, year, cover).         | Opened a book detail page.                                | All book details were displayed accurately.                                | ![screenshot](documentation/defensive/desktop-book-detail.png)           |
+|                               | Expected to allow logged-in users to submit reviews.                                             | Logged in, submitted a review with valid text and rating. | Review was submitted successfully and displayed as “pending approval.”     | ![screenshot](documentation/defensive/add-review.png)            |
+|                               | Expected to restrict review submission for unauthenticated users.                                | Tried submitting a review while logged out.               | Redirected to login page as expected.                                      | ![screenshot](documentation/defensive/review-login-required.png) |
+|                               | Expected to display approved reviews and average rating.                                         | Viewed a book with approved reviews.                      | Approved reviews and star ratings were displayed correctly.                | ![screenshot](documentation/defensive/book-reviews.png)          |
+| **Moderator Dashboard**       | Expected to allow moderators to view all submitted reviews.                                      | Logged in as moderator and accessed the dashboard.        | All reviews were displayed in a responsive table.                          | ![screenshot](documentation/defensive/desktop-dashboard.png)         |
+|                               | Expected to allow moderators to approve pending reviews.                                         | Clicked “Approve” on a pending review.                    | Review was marked as approved and removed from pending list.               | ![screenshot](documentation/defensive/approve-review.png)        |
+|                               | Expected to allow moderators to delete any review.                                               | Clicked “Delete” on a review.                             | Review was deleted successfully and removed from the dashboard.            | ![screenshot](documentation/defensive/delete-review.png)         |
+| **User Review Management**    | Expected to allow users to delete their own reviews.                                             | Logged in and deleted a personal review.                  | Review was deleted successfully.                                           | ![screenshot](documentation/defensive/user-delete-review.png)    |
+|                               | Expected to restrict users from deleting others’ reviews.                                        | Attempted to delete another user’s review.                | Access was denied with an error message.                                   | ![screenshot](documentation/defensive/delete-denied.png)         |
+| **User Authentication**       | Expected to allow users to register for a new account.                                           | Filled in the registration form with valid details.       | Account was created successfully and redirected to login.                  | ![screenshot](documentation/defensive/desktop-register.png)              |
+|                               | Expected to allow existing users to log in.                                                      | Logged in using valid credentials.                        | Login was successful and redirected to home page.                          | ![screenshot](documentation/defensive/desktop-login.png)                 |
+|                               | Expected to prevent login with invalid credentials.                                              | Tried logging in with incorrect password.                 | Error message displayed; login denied.                                     | ![screenshot](documentation/defensive/login-fail.png)            |
+|                               | Expected to log out users securely.                                                              | Clicked “Logout” and tried accessing a restricted page.   | Logged out successfully; access was denied to restricted pages.            | ![screenshot](documentation/defensive/desktop-logout.png)                |
+| **About Page**                | Expected to display information about the library and a contact form.                            | Opened About page and filled contact form.                | Page loaded correctly; message was sent and confirmation shown.            | ![screenshot](documentation/defensive/contact-form.png)          |
+| **Access Control**            | Expected to block non-moderators from accessing the moderator dashboard.                         | Tried accessing `/moderator/` as a normal user.           | Redirected to home or access denied message shown.                         | ![screenshot](documentation/defensive/access-denied.png)         |
+| **404 Error Page**            | Expected to display a custom 404 page for non-existent routes.                                   | Visited invalid URL (e.g., `/invalid-page/`).             | Custom 404 error page displayed correctly.                                 | ![screenshot](documentation/defensive/desktop-404.png)                   |
+
 
 ## User Story Testing
 
