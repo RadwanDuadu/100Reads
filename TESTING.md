@@ -90,23 +90,7 @@ I've tested my deployed project to check for responsiveness issues.
 
 ## Browser Compatibility
 
-⚠️ INSTRUCTIONS ⚠️
 
-Use this space to discuss testing the live/deployed site on various browsers. Consider testing at least 3 different browsers, if available on your system. You DO NOT need to use all of the browsers below, just pick any 3 (minimum).
-
-Recommended browsers to consider:
-- [Chrome](https://www.google.com/chrome)
-- [Firefox (Developer Edition)](https://www.mozilla.org/firefox/developer)
-- [Edge](https://www.microsoft.com/edge)
-- [Safari](https://support.apple.com/downloads/safari)
-- [Brave](https://brave.com/download)
-- [Opera](https://www.opera.com/download)
-
-**IMPORTANT**: You must provide screenshots of the browsers you've tested, to "prove" that you've actually tested them.
-
-Please note, there are services out there that can test multiple browser compatibilities at the same time. Some of these are paid services, but some are free. If you use these, you must provide a link to the source used for attribution, and multiple screenshots of the results.
-
-⚠️ --- END --- ⚠️
 
 I've tested my deployed project on multiple browsers to check for compatibility issues.
 
@@ -114,10 +98,13 @@ I've tested my deployed project on multiple browsers to check for compatibility 
 | --- | --- | --- | --- | --- |
 | Register | ![screenshot](documentation/browsers/chrome-register.png) | ![screenshot](documentation/browsers/firefox-register.png) | ![screenshot](documentation/browsers/safari-register.png) | Works as expected |
 | Login | ![screenshot](documentation/browsers/chrome-login.png) | ![screenshot](documentation/browsers/firefox-login.png) | ![screenshot](documentation/browsers/safari-login.png) | Works as expected |
+| Logout | ![screenshot](documentation/browsers/chrome-logout.png) | ![screenshot](documentation/browsers/firefox-logout.png) | ![screenshot](documentation/browsers/safari-logout.png) | Works as expected |
 | Home | ![screenshot](documentation/browsers/chrome-home.png) | ![screenshot](documentation/browsers/firefox-home.png) | ![screenshot](documentation/browsers/safari-home.png) | Works as expected |
-| Add Blog | ![screenshot](documentation/browsers/chrome-add-blog.png) | ![screenshot](documentation/browsers/firefox-add-blog.png) | ![screenshot](documentation/browsers/safari-add-blog.png) | Works as expected |
-| Edit Blog | ![screenshot](documentation/browsers/chrome-edit-blog.png) | ![screenshot](documentation/browsers/firefox-edit-blog.png) | ![screenshot](documentation/browsers/safari-edit-blog.png) | Works as expected |
-| Blog Post | ![screenshot](documentation/browsers/chrome-blog-post.png) | ![screenshot](documentation/browsers/firefox-blog-post.png) | ![screenshot](documentation/browsers/safari-blog-post.png) | Works as expected |
+| Book Detail | ![screenshot](documentation/browsers/chrome-book-detail.png) | ![screenshot](documentation/browsers/firefox-book-detail.png) | ![screenshot](documentation/browsers/safari-book-detail.png) | Works as expected |
+| Dashboard | ![screenshot](documentation/browsers/chrome-dashboard.png) | ![screenshot](documentation/browsers/firefox-dashboard.png) | ![screenshot](documentation/browsers/safari-dashboard.png) | Works as expected |
+| Add Book | ![screenshot](documentation/browsers/chrome-add-book.png) | ![screenshot](documentation/browsers/firefox-add-book.png) | ![screenshot](documentation/browsers/safari-add-book.png) | Works as expected |
+| Edit Book | ![screenshot](documentation/browsers/chrome-edit-book.png) | ![screenshot](documentation/browsers/firefox-edit-book.png) | ![screenshot](documentation/browsers/safari-edit-book.png) | Works as expected |
+| About | ![screenshot](documentation/browsers/chrome-about.png) | ![screenshot](documentation/browsers/firefox-about.png) | ![screenshot](documentation/browsers/safari-about.png) | Works as expected |
 | 404 | ![screenshot](documentation/browsers/chrome-404.png) | ![screenshot](documentation/browsers/firefox-404.png) | ![screenshot](documentation/browsers/safari-404.png) | Works as expected |
 
 ## Lighthouse Audit
