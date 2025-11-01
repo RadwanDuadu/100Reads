@@ -1,35 +1,63 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="container mt-4">
-  <h2>Moderator Dashboard</h2>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Book</th>
-        <th>Author</th>
-        <th>Review</th>
-        <th>Rating</th>
-        <th>Approved</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for review in reviews %}
-      <tr>
-        <td>{{ review.book.title }}</td>
-        <td>{{ review.author.username }}</td>
-        <td>{{ review.body|truncatechars:60 }}</td>
-        <td>{{ review.rating }}</td>
-        <td>{% if review.approved %}✅{% else %}❌{% endif %}</td>
-        <td>
-          {% if not review.approved %}
-          <a href="{% url 'approve_review' review.id %}" class="btn btn-sm btn-success">Approve</a>
-          {% endif %}
-          <a href="{% url 'delete_review' review.id %}" class="btn btn-sm btn-danger">Delete</a>
-        </td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
+<div class="container py-4">
+  <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-3">
+    <h2 class="mb-3 mb-md-0 text-center text-md-start">Moderator Dashboard</h2>
+    <p class="text-muted text-center text-md-end">
+      Manage and moderate all user reviews
+    </p>
+  </div>
+
+  <div class="table-responsive shadow-sm rounded bg-white p-2">
+    <table class="table table-hover align-middle mb-0">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">Book</th>
+          <th scope="col">Author</th>
+          <th scope="col" class="d-none d-sm-table-cell">Review</th>
+          <th scope="col">Rating</th>
+          <th scope="col">Approved</th>
+          <th scope="col" class="text-center">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for review in reviews %}
+        <tr>
+          <td class="fw-semibold">{{ review.book.title }}</td>
+          <td>{{ review.author.username }}</td>
+          <td class="d-none d-sm-table-cell text-truncate" style="max-width: 200px;">
+            {{ review.body|truncatechars:60 }}
+          </td>
+          <td>{{ review.rating }}</td>
+          <td>
+            {% if review.approved %}
+              <span class="badge bg-success">Approved</span>
+            {% else %}
+              <span class="badge bg-warning text-dark">Pending</span>
+            {% endif %}
+          </td>
+          <td class="text-center">
+            {% if not review.approved %}
+            <a href="{% url 'approve_review' review.id %}"
+               class="btn btn-sm btn-outline-success me-1 mb-1">
+              Approve
+            </a>
+            {% endif %}
+            <a href="{% url 'delete_review' review.id %}"
+               class="btn btn-sm btn-outline-danger mb-1">
+              Delete
+            </a>
+          </td>
+        </tr>
+        {% empty %}
+        <tr>
+          <td colspan="6" class="text-center text-muted py-4">
+            No reviews available.
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
 </div>
 {% endblock %}
