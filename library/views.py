@@ -25,7 +25,8 @@ def book_detail(request, slug):
 
     review_count = book.Reviews.filter(approved=True).count()
     average_rating = round(
-        book.Reviews.filter(approved=True).aggregate(avg=Avg("rating"))["avg"] or 0
+        book.Reviews.filter(approved=True).aggregate(
+            avg=Avg("rating"))["avg"] or 0
     )
 
     paginator = Paginator(reviews, 4)
@@ -37,7 +38,8 @@ def book_detail(request, slug):
     edit_id = request.GET.get("edit")
     if edit_id and request.user.is_authenticated:
         try:
-            review_to_edit = Review.objects.get(id=edit_id, author=request.user)
+            review_to_edit = Review.objects.get(
+                id=edit_id, author=request.user)
             review_form = ReviewForm(instance=review_to_edit)
         except Review.DoesNotExist:
             review_to_edit = None
@@ -50,14 +52,19 @@ def book_detail(request, slug):
         review_id = request.POST.get("review_id")
 
         if review_id:  # Editing existing review
-            review = get_object_or_404(Review, pk=review_id, author=request.user)
+            review = get_object_or_404(
+                    Review,
+                    pk=review_id,
+                    author=request.user)
             review_form = ReviewForm(request.POST, instance=review)
             if review_form.is_valid():
                 edited_review = review_form.save(commit=False)
                 edited_review.approved = False  # Require reapproval
                 edited_review.save()
                 messages.success(
-                    request, "Your review was updated and is awaiting reapproval."
+                    request, (
+                        "Your review was updated and is awaiting reapproval."
+                        )
                 )
                 return redirect("book_detail", slug=slug)
 
@@ -68,7 +75,10 @@ def book_detail(request, slug):
                 new_review.author = request.user
                 new_review.book = book
                 new_review.save()
-                messages.success(request, "Review submitted and awaiting approval.")
+                messages.success(request, (
+                            "Review submitted and awaiting approval."
+                        )
+                    )
                 return redirect("book_detail", slug=slug)
 
     return render(
