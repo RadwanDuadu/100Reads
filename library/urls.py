@@ -4,8 +4,8 @@ from . import views
 urlpatterns = [
     path('', views.BookList.as_view(), name='home'),
     path('<slug:slug>/', views.book_detail, name='book_detail'),
-    path('<slug:slug>/edit_review/<int:review_id>',
-         views.review_edit, name='review_edit'),
+    # path('<slug:slug>/edit_review/<int:review_id>',
+    #      views.review_edit, name='review_edit'),
     path('<slug:slug>/delete_review/<int:review_id>',
          views.review_delete, name='review_delete'),
     path(
@@ -19,7 +19,7 @@ urlpatterns = [
         name='approve_review'
      ),
     path(
-        'moderator/review/<int:review_id>/delete/',
+        'moderator/dashboard/delete_review/<int:review_id>',
         views.delete_review,
         name='delete_review'
         ),

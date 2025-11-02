@@ -20,52 +20,56 @@ def book_detail(request, slug):
     """
     Display a single book and its reviews, with pagination and review form.
     """
-    queryset = Book.objects.all()
-    book = get_object_or_404(queryset, slug=slug)
-
-    # Get all reviews for pagination
+    book = get_object_or_404(Book, slug=slug)
     reviews = book.Reviews.all().order_by("-created_on")
 
-    # Count approved reviews
     review_count = book.Reviews.filter(approved=True).count()
-
-    # Calculate average rating from approved reviews
-    average_rating = (
-        book.Reviews.filter(approved=True)
-        .aggregate(avg=Avg('rating'))['avg']
-        or 0
+    average_rating = round(
+        book.Reviews.filter(approved=True).aggregate(avg=Avg("rating"))["avg"] or 0
     )
-    average_rating = round(average_rating)
 
-    # Pagination: 3 reviews per page
-    paginator = Paginator(reviews, 3)
-    page = request.GET.get("page")
+    paginator = Paginator(reviews, 4)
+    page = request.GET.get("page", 1)
+    page_obj = paginator.get_page(page)
 
-    try:
-        page_obj = paginator.page(page)
-    except PageNotAnInteger:
-        page_obj = paginator.page(1)
-    except EmptyPage:
-        page_obj = paginator.page(paginator.num_pages)
+    # --- Detect editing mode ---
+    review_to_edit = None
+    edit_id = request.GET.get("edit")
+    if edit_id and request.user.is_authenticated:
+        try:
+            review_to_edit = Review.objects.get(id=edit_id, author=request.user)
+            review_form = ReviewForm(instance=review_to_edit)
+        except Review.DoesNotExist:
+            review_to_edit = None
+            review_form = ReviewForm()
+    else:
+        review_form = ReviewForm()
 
-    # Handle review submission
-    if request.method == "POST":
-        review_form = ReviewForm(data=request.POST)
-        if review_form.is_valid():
-            review = review_form.save(commit=False)
-            review.author = request.user
-            review.book = book
-            review.save()
-            messages.add_message(
-                request,
-                messages.SUCCESS,
-                'Review submitted and awaiting approval'
-            )
-            return HttpResponseRedirect(
-                reverse('book_detail', args=[slug])
-            )
+    # --- Handle POST (new or update) ---
+    if request.method == "POST" and request.user.is_authenticated:
+        review_id = request.POST.get("review_id")
 
-    review_form = ReviewForm()
+        if review_id:  # Editing existing review
+            review = get_object_or_404(Review, pk=review_id, author=request.user)
+            review_form = ReviewForm(request.POST, instance=review)
+            if review_form.is_valid():
+                edited_review = review_form.save(commit=False)
+                edited_review.approved = False  # Require reapproval
+                edited_review.save()
+                messages.success(
+                    request, "Your review was updated and is awaiting reapproval."
+                )
+                return redirect("book_detail", slug=slug)
+
+        else:  # Creating new review
+            review_form = ReviewForm(request.POST)
+            if review_form.is_valid():
+                new_review = review_form.save(commit=False)
+                new_review.author = request.user
+                new_review.book = book
+                new_review.save()
+                messages.success(request, "Review submitted and awaiting approval.")
+                return redirect("book_detail", slug=slug)
 
     return render(
         request,
@@ -76,33 +80,10 @@ def book_detail(request, slug):
             "page_obj": page_obj,
             "review_count": review_count,
             "review_form": review_form,
+            "review_to_edit": review_to_edit,
             "average_rating": average_rating,
         },
     )
-
-
-def review_edit(request, slug, review_id):
-    """Edit an existing review."""
-    if request.method == "POST":
-        queryset = Book.objects.all()
-        book = get_object_or_404(queryset, slug=slug)
-        review = get_object_or_404(Review, pk=review_id)
-        review_form = ReviewForm(data=request.POST, instance=review)
-
-        if review_form.is_valid() and review.author == request.user:
-            review = review_form.save(commit=False)
-            review.book = book
-            review.approved = False
-            review.save()
-            messages.add_message(
-                request, messages.SUCCESS, 'Review updated!'
-            )
-        else:
-            messages.add_message(
-                request, messages.ERROR, 'Error updating review!'
-            )
-
-    return HttpResponseRedirect(reverse('review_detail', args=[slug]))
 
 
 def review_delete(request, slug, review_id):

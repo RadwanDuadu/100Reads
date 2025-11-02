@@ -1,31 +1,3 @@
-const editButtons = document.getElementsByClassName("btn-edit");
-const reviewText = document.getElementById("id_body");
-const reviewForm = document.getElementById("ReviewForm");
-const submitButton = document.getElementById("submitButton");
-
-const deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
-const deleteButtons = document.getElementsByClassName("btn-delete");
-const deleteConfirm = document.getElementById("deleteConfirm");
-/**
-* Initializes edit functionality for the provided edit buttons.
-* 
-* For each button in the `editButtons` collection:
-* - Retrieves the associated review's ID upon click.
-* - Fetches the content of the corresponding review.
-* - Populates the `reviewText` input/textarea with the review's content for editing.
-* - Updates the submit button's text to "Update".
-* - Sets the form's action attribute to the `edit_review/{reviewId}` endpoint.
-*/
-for (let button of editButtons) {
-  button.addEventListener("click", (e) => {
-    let reviewId = e.target.getAttribute("review_id");
-    let reviewContent = document.getElementById(`review${reviewId}`).innerText;
-    reviewText.value = reviewContent;
-    submitButton.innerText = "Update";
-    ReviewForm.setAttribute("action", `edit_review/${reviewId}`);
-  });
-}
-
 /**
 * Initializes deletion functionality for the provided delete buttons.
 * 
@@ -36,10 +8,44 @@ for (let button of editButtons) {
 * - Displays a confirmation modal (`deleteModal`) to prompt 
 * the user for confirmation before deletion.
 */
-for (let button of deleteButtons) {
-  button.addEventListener("click", (e) => {
-    let reviewId = e.target.getAttribute("review_id");
-    deleteConfirm.href = `delete_review/${reviewId}`;
-    deleteModal.show();
+console.log("reviews.js loaded");
+
+document.addEventListener("DOMContentLoaded", () => {
+  const deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
+  const deleteConfirm = document.getElementById("deleteConfirm");
+  const deleteButtons = document.querySelectorAll(".reviews .btn-delete");
+
+  deleteButtons.forEach(button => {
+  console.log("Found button with data-review-id:", button.dataset.reviewId);
   });
-}
+
+  deleteButtons.forEach(button => {
+    button.addEventListener("click", e => {
+      e.preventDefault();
+
+      // const reviewId = button.dataset.reviewId;
+      let reviewId = e.target.getAttribute("review_id");
+      if (!reviewId) {
+        console.error("No review ID found!");
+        return;
+      }
+
+      let deleteUrl;
+
+      if (window.location.pathname.includes("/moderator/")) {
+        // Moderator dashboard delete
+        deleteUrl = `/moderator/dashboard/delete_review/${reviewId}`;
+      } else {
+        // Book detail page delete
+        // Get the slug from the current URL dynamically
+        // e.g., /the-complete-sherlock-holmes/ → slug = 'the-complete-sherlock-holmes'
+        const pathParts = window.location.pathname.split("/").filter(Boolean);
+        const slug = pathParts[0]; // first part is the book slug
+        deleteUrl = `/${slug}/delete_review/${reviewId}/`;
+      }
+
+      deleteConfirm.setAttribute("href", deleteUrl);
+      deleteModal.show();
+    });
+  });
+});
