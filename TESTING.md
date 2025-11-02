@@ -122,7 +122,7 @@ I've tested my deployed project using the Lighthouse Audit tool to check for any
 | Home | ![screenshot](documentation/lighthouse/mobile-home.png) | ![screenshot](documentation/lighthouse/desktop-home.png) |
 | Add Book | ![screenshot](documentation/lighthouse/mobile-add-book.png) | ![screenshot](documentation/lighthouse/desktop-add-book.png) |
 | Edit Book | ![screenshot](documentation/lighthouse/mobile-edit-book.png) | ![screenshot](documentation/lighthouse/desktop-edit-book.png) |
-| Book Detail | ![screenshot](documentation/lighthouse/mobile-book-detail.png) | ![screenshot](documentation/lighthouse/desktop-book-detail.png) |
+| Book Detail | ![screenshot](documentation/lighthouse/mobile-detail-book.png) | ![screenshot](documentation/lighthouse/desktop-detail-book.png) |
 | About| ![screenshot](documentation/lighthouse/mobile-about.png) | ![screenshot](documentation/lighthouse/desktop-about.png) |
 | 404 | ![screenshot](documentation/lighthouse/mobile-404.png) | ![screenshot](documentation/lighthouse/desktop-404.png) |
 
